@@ -1,23 +1,29 @@
 <h1 class="chairty-name"><%=@project.name%></h1>
 
 <div class="container">
-  <div class="col-md-3">
-    <%= image_tag @project.photo, class: 'project-photo' %>
-  </div>
-  <div class="col-md-9">
-    <div class="card text-center">
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-           <li class="nav-item">
-              <a class="nav-link active" href="#" role="tab">Project Information</a>
-           </li>
-           <li class="nav-item">
-              <a class="nav-link" href="#">Charity Information</a>
-           </li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <%= @project.project_description, class: 'project_description' %>
+  <div class="row">
+    <div class="col-md-5">
+      <% if @project.photo.attached? %>
+        <%= cl_image_tag @project.photo.key, class: 'project-photo' %>
+      <% end %>
+    </div>
+    <div class="col-md-7">
+      <div class="card text-center">
+        <div class="card-header tab-header d-flex align-items-center justify-content-start">
+          <span class="tab active" role="tab" aria-controls="project-description" aria-selected="true">Project Information</span>
+          <span class="tab" role="tab" aria-controls="charity-description" aria-selected="false">Charity Information</span>
+        </div>
+        <div class="card-body">
+          <div class="tab-content mt-3">
+            <div class="tab-pane active" id="project-description" role="tabpanel">
+              <p class="card-text"><%= @project.project_description %></p>
+            </div>
+          </div>
+          <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
+            <p class="card-text"><%= @project.charity_description %></p>
+            <p class="charity-link">For more information, please visit: <%= @project.website %></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
