@@ -13,28 +13,23 @@
 <input type="checkbox" class="tablefilter" name="class3" id="class3" checked />
 <label for="class3">Filter 3</label>
   <% end %>
-  <div class="card-container">
-    <div class="row">
+
+  <div class="container">
+    <ul class="list-group">
       <% @projects.each do |project| %>
-        <div class="col-12 col-md-6 col-lg-4">
+        <li class="list-group-item">
           <%= link_to project_path(project), class: 'card-link' do %>
-            <div class="card">
-              <%= cl_image_tag project.photo.key, class: "card-img" %>
-                <div class="card-description">
-                  <div class="card-title">
-                    <p class="left-align">Project: <%= project.name %>
-                      Category: <%= project.category %> Charity Desc: <%= project.charity_description %></p>
-                    <p class="right-align">Deadline date: <%= project.deadline %></p>
-                  </div>
-                  <div class="card-information">
-                    <%= project.project_description %>
-                  </div>
-                </div>
-              <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+            <div class="card-product" >
+              <img <%= cl_image_tag project.photo.key %>
+              <div class="card-product-infos">
+                <h2><%= project.name %></h2>
+                <p>Category: <%=project.category %> Location: <%= project.location %></p>
+                <p>Project description: <%= project.project_description %> </p>
+              </div>
+            </div>
+          <% end %>
+        </li>
+    <% end %>
   </div>
 </div>
 
