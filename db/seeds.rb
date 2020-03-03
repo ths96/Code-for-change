@@ -15,6 +15,6 @@ require "open-uri"
 
 # Project.create!
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-project = Project.new(title: 'NES', body: "A great console")
-project.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+# file = URI.open('https://cdn.britannica.com/s:800x450,c:crop/66/195966-138-F9E7A828/facts-turtles.jpg')
+# project = Project.new(name: 'Save the Turtles Homepage', type: 'Front', description: 'We would like help redesigning our homepage', deadline: '10/05/2020')
+# project.photo.attach(io: file, filename: 'turtle.png', content_type: 'image/png')
