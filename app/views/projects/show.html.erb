@@ -1,12 +1,24 @@
+<h1 class="chairty-name"><%=@project.name%></h1>
+
 <div class="container">
-	<div class="card-product">
-		<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-		<div class="card-product-infos">
-			<h2>Project name</h2>
-			<p>Product description with <strong>relevant info</strong> only.</p>
-		</div>
-		<div class="text" style="">
-      <%=# link_to "I'm in", new_car_booking_path(@car) %>
+  <div class="col-md-3">
+    <%= image_tag @project.photo, class: 'project-photo' %>
+  </div>
+  <div class="col-md-9">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+           <li class="nav-item">
+              <a class="nav-link active" href="#" role="tab">Project Information</a>
+           </li>
+           <li class="nav-item">
+              <a class="nav-link" href="#">Charity Information</a>
+           </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <%= @project.project_description, class: 'project_description' %>
+      </div>
     </div>
-	</div>
+  </div>
 </div>

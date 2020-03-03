@@ -6,7 +6,7 @@
 <div class="container">
   <h4 class="instruction">Please fill out the fields below: </h4>
   <div class="project-form">
-     <%= simple_form_for [@project] do |f| %>
+     <%= simple_form_for [@charity, @project] do |f| %>
        <%= f.input :name, label: 'Enter your organizations name' %>
        <%= f.input :type, :collection => %w[Front-end Back-end Full-stack], label: 'Enter the type of project you want completed' %>
        <%= f.input :deadline, as: :date, label: 'Submit the date you would like your project to be completed' %>
