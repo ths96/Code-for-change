@@ -7,14 +7,16 @@ require "open-uri"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
 
-# Projects.destroy_all
-# User.destroy_all
+user1 = User.create!(email: 'tom@tom.com', password: 'test1234')
+charity1 = Charity.create!(name: 'Save the Turtles', description:'Saving all the Turtles', location: 'Mexico', user: user1)
+turtles = Project.create!(name: 'Save the Turtles', category: 'Front-end', charity_description: 'Saving all the turtles', website: 'www.savetheturtles.org', location: 'Mexico', project_description: 'We would like help redesigning our homepage', deadline: '10/05/2020', charity: charity1)
+url_turtle = "https://images.unsplash.com/photo-1518467166778-b88f373ffec7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
+turtles.photo.attach(io: open(url_turtle), filename: 'turtle_1')
 
-# user = User.create!(email: 'test@test.com', password: 'test1234')
-
-# Project.create!
-
-# file = URI.open('https://cdn.britannica.com/s:800x450,c:crop/66/195966-138-F9E7A828/facts-turtles.jpg')
-# project = Project.new(name: 'Save the Turtles Homepage', type: 'Front', description: 'We would like help redesigning our homepage', deadline: '10/05/2020')
-# project.photo.attach(io: file, filename: 'turtle.png', content_type: 'image/png')
+user2 = User.create!(email: 'iram@iram.com', password: 'test1234')
+charity2 = Charity.create!(name: 'Save the Turtles', description:'Saving all the Turtles', location: 'Mexico', user: user2)
+giving = Project.create!(name: 'Life of Giving', category: 'Full-stack', charity_description: 'Giving help to those who need it', website: 'www.lifeofgiving.org', location: 'London', project_description: 'We need a full website rebuild', deadline: '13/07/2020', charity: charity2)
+url_giving = "https://ssir.org/images/blog/barbara-amedeo-fundraising-holidays-tips592x333.jpg"
+giving.photo.attach(io: open(url_giving), filename: 'giving_1')
