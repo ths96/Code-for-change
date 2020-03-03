@@ -3,11 +3,10 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @project = Project.all
+    @projects = Project.all
   end
 
   def show
-  @review = Review.new
   end
 
   def new

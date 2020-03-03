@@ -1,0 +1,35 @@
+.chairty-name {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+.project-photo {
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+}
+
+.tab {
+  border-bottom: 1px solid #cccccc;
+  padding: 8px 16px;
+  &.active {
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    background: white;
+  }
+}
+
+.card-text {
+  text-align: left;
+}
+
+.charity-link {
+  text-align: left;
+}
+.tab-header {
+  padding: 1rem 0 0 0 !important;
+}
