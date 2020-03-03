@@ -8,7 +8,7 @@
   <div class="project-form">
      <%= simple_form_for [@charity, @project] do |f| %>
        <%= f.input :name, label: 'Enter your organizations name' %>
-       <%= f.input :type, :collection => %w[Front-end Back-end Full-stack], label: 'Enter the type of project you want completed' %>
+       <%= f.input :category, :collection => %w[Front-end Back-end Full-stack], label: 'Enter the type of project you want completed' %>
        <%= f.input :deadline, as: :date, label: 'Submit the date you would like your project to be completed' %>
        <%= f.input :charity_description, as: :text, label: 'Give a short description of your charity'%>
        <%= f.input :project_description, as: :text, label: 'Give a short description of your project and the functions and/or design features you want included'%>
