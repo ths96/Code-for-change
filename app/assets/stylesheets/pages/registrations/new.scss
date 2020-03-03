@@ -1,0 +1,64 @@
+.session-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: calc(100vh - 66px);
+
+  &-form {
+    padding: 60px;
+    max-width: 620px;
+  }
+
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
+.h2-signup {
+  text-align: center;
+  font-size: 50px;
+
+
+
+}
+.h2-profile {
+  text-align: center;
+  font-size: 50px;
+}
+
+.h3-profile {
+  font-size: 40px;
+  padding:10px;
+}
+
+.user-name {
+  font-size: 34px;
+  padding: 10px;
+}
+
+.user-bio {
+  width: 45%;
+  padding-right: 40px;
+  border-right: 2px solid;
+}
+
+.user-location {
+  font-size: 38px;
+
+
+}
+
+.card-category {
+  margin: 15px;
+}
+
+.btn {
+ margin: 10px;
+
+
+}
+
+
+
