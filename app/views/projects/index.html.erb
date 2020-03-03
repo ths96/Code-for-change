@@ -15,11 +15,11 @@
   <% end %>
   <div class="cards">
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Save the Turtles</h2>
-        <p>Project description with <strong>relevant info</strong> only.</p>
-      </div>
+      <%# @projects.each do |project| %>
+          <%#= cl_image_tag project.photo.key %>
+          <%#= project.name %>, <%#= project.type %> <%#= project.description %>
+          <%#= project.deadline %>
+      <%# end %>
     </div>
     <div class="card-product">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
