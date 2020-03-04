@@ -1,0 +1,40 @@
+
+.your-project {
+background: rgb(117,130,133);
+padding: 120px 80px 50px;
+color: white;
+position: relative;
+top: -66px;
+
+	.img-dashboard {
+	position: absolute;
+	border-radius: 5%;
+	width: 90px;
+	height: 90px;
+	object-fit: cover;
+	border: 2px solid white;
+	left: 330px;
+	}
+
+	div {
+		position: relative;
+    top: 19px;
+    right: -355px;
+	}
+
+	h4 {
+	font-size: 16px;
+	font-family: ‘Noto Sans’, sans-serif;
+	margin-bottom: 0px;
+	color: #D8D8D8;
+	}
+
+	h3 {
+		font-size: 46px;
+		font-family: ‘Fjalla One’, sans-serif;
+	}
+}
+
+.dashboard-page {
+	padding: 35px 0px;
+}

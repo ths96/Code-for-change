@@ -13,8 +13,9 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
-   <%= f.input :password,
+    <%= f.input :trello_token %>
+    <%= link_to 'Authorize Trello', "https://trello.com/1/authorize?expiration=never&name=Code For Change&scope=read&response_type=token&key=#{ENV['TRELLO_API_KEY']}", target: '_blank', class:"btn btn-info" %>
+    <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
