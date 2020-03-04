@@ -1,13 +1,17 @@
 .footer {
-  margin: 50px;
+  // margin: 50px;
   margin-top: 180px;
   background: #F4F4F4;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
   justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
+  // height: 100px;
+  padding: 10px 10px;
   color: black;
+  background-color: #EAEAEA;
 }
 
 .resources-list {

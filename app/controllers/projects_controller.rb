@@ -3,7 +3,15 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query \
+      OR project_description ILIKE :query \
+      OR location ILIKE :query \
+      OR category @@ :query"
+      @projects = Project.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @projects = Project.all
+    end
   end
 
   def show
@@ -42,7 +50,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :type, :description, :photo)
+    params.require(:project).permit(:name, :category, :project_description, :photo)
   end
 
   def find_project
