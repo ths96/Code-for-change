@@ -15,6 +15,15 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @projects = Project.geocoded
+     @markers = [
+      {
+        lat: @project.latitude,
+        lng: @project.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { project: @project }),
+        image_url: @project.photo.present? ? @project.photo.service_url : 'https://kitt.lewagon.com/placeholder/cities/random'
+      }
+    ]
   end
 
   def new

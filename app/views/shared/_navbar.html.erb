@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%=  'transparent' if controller_name = 'pages' && action_name = 'dashboard' %>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= 'Code for Change' %>
     <% end %>
