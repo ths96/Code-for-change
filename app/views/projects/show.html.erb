@@ -1,4 +1,4 @@
-<h1 class="chairty-name"><%=@project.name%></h1>
+<h1 class="charity-name"><%=@project.name%></h1>
 
 <div class="container">
   <div class="row">
@@ -24,6 +24,35 @@
             <p class="charity-link">For more information, please visit: <%= @project.website %></p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <h1 class="important-info">Further Information</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class= "card card-important-info">
+          <h2 class="important-title">Please note:</h2>
+          <ul class="important-body">
+            <li>You are only permitted to work on one project at a time </li>
+            <li>More information will be given once you have been accepted to the project.</li>
+            <li>The time it will take to complete each project will depend on the project complexity, please be mindful and realistic about the requirements. </li>
+            <li>In most cases, you will be collaborating on this project with other individuals using the platform.</li>
+            <li>Code For Change does not take gender or age into account. This will provide you with valuable experience in working within diverse teams, which is a reality of the contemporary workplace.</li>
+            <li>Each charity has a representative that will act as your point of contact throughout the project. This will be the person who you are able to reach out to for questions specific to the needs of the project.</li>
+            <li>Once you complete your project, you can add the product to your portfolio. Your goal is to leave behind a well documented solution that can be easily maintained by the organization.</li>
+            <li>Both the charity, your collaborators and the Code For Change team is counting on you to complete the project. Should you leave the project before completion you will be banned from joining any future projects.</li>
+          </ul>
       </div>
     </div>
   </div>
