@@ -44,13 +44,14 @@
 }
 
 #map {
-  padding: 20px;
   justify-content: center;
 }
 
 .card-important-info {
+  height: 600px;
   padding: 20px;
   margin-bottom: 0px;
+  overflow: scroll;
 }
 
 .important-title {
