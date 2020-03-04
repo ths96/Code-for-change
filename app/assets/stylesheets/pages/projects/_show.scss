@@ -1,4 +1,4 @@
-.chairty-name {
+.charity-name {
   text-align: center;
   text-transform: uppercase;
   padding: 20px;
@@ -7,7 +7,7 @@
 .project-photo {
   width: 100%;
   object-fit: cover;
-  height: 300px;
+  height: 600px;
 }
 
 .tab {
@@ -23,6 +23,10 @@
   }
 }
 
+.text-center {
+  height: 600px
+}
+
 .card-text {
   text-align: left;
 }
@@ -33,3 +37,23 @@
 .tab-header {
   padding: 1rem 0 0 0 !important;
 }
+
+.important-info {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#map {
+  padding: 20px;
+  justify-content: center;
+}
+
+.card-important-info {
+  padding: 20px;
+  margin-bottom: 0px;
+}
+
+.important-title {
+  text-align: center;
+}
+
