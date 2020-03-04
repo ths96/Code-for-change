@@ -1,3 +1,6 @@
+.body-dashboard {
+background-color: white;
+}
 
 .your-project {
 background: rgb(117,130,133);
@@ -17,6 +20,7 @@ top: -66px;
 	}
 
 	div {
+		display: inline-block;
 		position: relative;
     top: 19px;
     right: -355px;
@@ -37,4 +41,51 @@ top: -66px;
 
 .dashboard-page {
 	padding: 35px 0px;
+
+	.tables {
+    display: grid;
+    grid-gap: 50px 100px;
+		.sm-table {
+			margin-bottom: 20px;
+		}
+		.docs {
+			p {
+				  display: inline-block;
+  width: 200px;
+  height: 50px;
+  padding: 5px;
+  background-color: yellow;
+			}
+
+		}
+
+
+		.trello-updates {
+			.lists {
+				display: flex;
+				.list {
+					padding: 25px;
+					margin: 20px;
+					background-color: #E6E6E6;
+					border-radius: 7px;
+					width: 340px;
+					overflow: hidden;
+				}
+				h5 {
+						font-family: ‘Fjalla One’, sans-serif;
+						font-size: 16px;
+						font-weight: bold;
+						padding-bottom: 10px;
+				}
+			  p {
+					background-color: white;
+					padding: 15px;
+					margin-bottom: 20px;
+					list-style: circle;
+					border-radius: 7px;
+				}
+			}
+		}
+	}
 }
+
