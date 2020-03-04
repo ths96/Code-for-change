@@ -7,23 +7,25 @@ class PagesController < ApplicationController
   def dashboard
     if current_user.trello_token.present?
       url = "https://api.trello.com/1/members/me/boards?&key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
-      response = RestClient.get(url)
-      @boards = JSON.parse(response)
+      @boards = use_api(url)
       @boards.map! do |board|
         board_url = "https://api.trello.com/1/boards/#{board['id']}?lists=open&list_fields=name&key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
-        board_response = RestClient.get(board_url)
-        result = JSON.parse(board_response)
+        result = use_api(board_url)
         result['lists'].each do |list|
           list_url = "https://api.trello.com/1/lists/#{list['id']}/cards?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
-          list_response = RestClient.get(list_url)
-          list['cards'] = JSON.parse(list_response)
+          list['cards'] = use_api(list_url)
         end
       end
-      @boards.flatten!
+      @tasks = @boards.flatten
     end
   end
+  
+  def use_api(url)
+    json = RestClient.get(url)
+    JSON.parse(json)
+  end
+
   def profile
     @user = current_user
   end
-
 end
