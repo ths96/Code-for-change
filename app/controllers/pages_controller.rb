@@ -21,9 +21,9 @@ class PagesController < ApplicationController
       end
       @boards.flatten!
     end
-
+  end
   def profile
     @user = current_user
   end
-    
+
 end
