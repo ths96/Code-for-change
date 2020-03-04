@@ -15,14 +15,30 @@
   }
 }
 
+.session-grid2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: calc(100vh - 66px);
+
+  &-form {
+    padding: 60px;
+    max-width: 620px;
+  }
+.session-grid-text {
+  height: 100%;
+  width: 100%;
+
+}
+}
+
+
+
 
 .h2-signup {
   text-align: center;
   font-size: 50px;
-
-
-
 }
+
 .h2-profile {
   text-align: center;
   font-size: 50px;
@@ -40,14 +56,10 @@
 
 .user-bio {
   width: 45%;
-  padding-right: 40px;
-  border-right: 2px solid;
 }
 
 .user-location {
   font-size: 38px;
-
-
 }
 
 .card-category {
@@ -56,8 +68,6 @@
 
 .btn {
  margin: 10px;
-
-
 }
 
 

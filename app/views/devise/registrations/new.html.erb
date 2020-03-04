@@ -1,12 +1,11 @@
-<h2 class="h2-signup">Sign up</h2>
-
-
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-
-  <div class="container">
+  <% if params[:coder] == 'true' %>
+   <h2 class="h2-signup">Sign up as a coder</h2>
+  <div class ="session-grid2">
+  <div class="session-grid-form">
   <div class="form-inputs">
     <%= f.input :email,
                 required: true,
@@ -19,18 +18,80 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-                <%= f.input :name %>
-                <%= f.input :photo, as: :file %>
-                <%= f.input :bio, placeholder:"Tell us about yourself..." %>
-                <%= f.input :location %>
-                <%= f.input :linkedin_url %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :bio, placeholder:"Tell us about yourself..." %>
+    <%= f.input :location %>
+    <%= f.input :linkedin_url %>
+    <%= f.input :coder, as: :hidden, input_html: {value: true} %>
   </div>
 
   <div class= "form-actions">
   <%= f.button :submit, "Sign up", class: "btn btn-flat" %>
   </div>
-<% end %>
-
-
-<%= render "devise/shared/links" %>
 </div>
+
+
+<div class ="session-grid2">
+  <div class="session-grid-text">
+   <p> Why Sign up?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+    mollit anim id est laborum.</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+  <% else %>
+  <h2 class="h2-signup">Sign up as a Charity</h2>
+  <div class ="session-grid2">
+  <div class="session-grid-form">
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :coder, as: :hidden, input_html: {value: false} %>
+  </div>
+
+  <div class= "form-actions">
+  <%= f.button :submit, "Sign up", class: "btn btn-flat" %>
+  <%= link_to 'Back to Listings',new_project_path%>
+  </div>
+<% end %>
+<% end %>
+</div>
+
+<div class ="session-grid2">
+  <div class="session-grid-text">
+   <p> Why Sign up?</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+

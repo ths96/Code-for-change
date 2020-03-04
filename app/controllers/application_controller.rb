@@ -4,17 +4,21 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :bio, :linkedin_url, :location ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :bio, :linkedin_url, :location, :coder])
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :bio, :linkedin_url, :location, :trello_token ])
   end
-  
-   def after_sign_up_path_for(resource)
-    profile_path
-   end
 
    def after_sign_in_path_for(resource)
-    profile_path
+    if resource.coder
+      profile_path
+    elsif resource.charity
+      new_project_path
+    elsif !resource.charity
+      new_charity_path
+    else
+      charity_profile_path
+    end
    end
 end
