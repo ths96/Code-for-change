@@ -1,0 +1,18 @@
+<h2 class="h2-signup">Sign Up Your Charity</h2>
+  <div class ="session-grid2">
+    <div class="session-grid-form">
+      <div class="form-inputs">
+        <%= simple_form_for @charity do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :location %>
+          <%= f.input :address %>
+          <%= f.input :email %>
+          <%= f.input :website %>
+          <%= f.input :charity_registration_number %>
+          <%= f.button :submit, "Register Your Charity With Us", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
