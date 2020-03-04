@@ -1,12 +1,30 @@
+<h1 class="chairty-name"><%=@project.name%></h1>
+
 <div class="container">
-	<div class="card-product">
-		<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-		<div class="card-product-infos">
-			<h2>Project name</h2>
-			<p>Product description with <strong>relevant info</strong> only.</p>
-		</div>
-		<div class="text" style="">
-      <%=# link_to "I'm in", new_car_booking_path(@car) %>
+  <div class="row">
+    <div class="col-md-5">
+      <% if @project.photo.attached? %>
+        <%= cl_image_tag @project.photo.key, class: 'project-photo' %>
+      <% end %>
     </div>
-	</div>
+    <div class="col-md-7">
+      <div class="card text-center">
+        <div class="card-header tab-header d-flex align-items-center justify-content-start">
+          <span class="tab active" role="tab" aria-controls="project-description" aria-selected="true">Project Information</span>
+          <span class="tab" role="tab" aria-controls="charity-description" aria-selected="false">Charity Information</span>
+        </div>
+        <div class="card-body">
+          <div class="tab-content mt-3">
+            <div class="tab-pane active" id="project-description" role="tabpanel">
+              <p class="card-text"><%= @project.project_description %></p>
+            </div>
+          </div>
+          <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
+            <p class="card-text"><%= @project.charity_description %></p>
+            <p class="charity-link">For more information, please visit: <%= @project.website %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

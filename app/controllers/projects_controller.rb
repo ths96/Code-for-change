@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @project = Project.all
+    @projects = Project.all
   end
 
   def show
-  @review = Review.new
   end
 
   def new
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :type, :description)
+    params.require(:project).permit(:name, :type, :description, :photo)
   end
 
   def find_project

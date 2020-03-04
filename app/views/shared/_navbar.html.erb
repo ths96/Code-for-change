@@ -26,6 +26,12 @@
           </div>
         </li>
       <% else %>
+      <li class="nav-item">
+         <li class="nav-item">
+          <%= link_to "Sign Up As Charity", new_project_path, class: "nav-link" %>
+        </li>
+          <%= link_to "Sign Up As Coder",  new_user_registration_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
             <%= link_to "Help", new_user_session_path, class: "nav-link" %>
         </li>

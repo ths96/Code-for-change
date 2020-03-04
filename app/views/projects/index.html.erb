@@ -13,28 +13,23 @@
 <input type="checkbox" class="tablefilter" name="class3" id="class3" checked />
 <label for="class3">Filter 3</label>
   <% end %>
-  <div class="cards">
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Save the Turtles</h2>
-        <p>Project description with <strong>relevant info</strong> only.</p>
-      </div>
-    </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Menstroo</h2>
-        <p>Project description with <strong>relevant info</strong> only.</p>
-      </div>
-    </div>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Tom's Charitable Enterprise</h2>
-        <p>Project description with <strong>relevant info</strong> only.</p>
-      </div>
-    </div>
+
+  <div class="container">
+    <ul class="list-group">
+      <% @projects.each do |project| %>
+        <li class="list-group-item">
+          <%= link_to project_path(project), class: 'card-link' do %>
+            <div class="card-product" >
+              <img <%= cl_image_tag project.photo.key %>
+              <div class="card-product-infos">
+                <h2><%= project.name %></h2>
+                <p>Category: <%=project.category %> Location: <%= project.location %></p>
+                <p>Project description: <%= project.project_description %> </p>
+              </div>
+            </div>
+          <% end %>
+        </li>
+    <% end %>
   </div>
 </div>
 
