@@ -17,12 +17,15 @@
         <li class="nav-item">
           <%= link_to "Projects", projects_path, class: "nav-link" %>
         </li>
-         <li class="nav-item">
-          <%= link_to "My Profile", "/profile", class: "nav-link" %>
-        </li>
+        <% if current_user.charity %>
+          <li class="nav-item">
+            <%= link_to "Charity profile", charity_path(current_user.charity), class: "nav-link" %>
+          </li>
+        <% else %>
         <li class="nav-item">
-          <%= link_to "Charity profile", "/charity-profile", class: "nav-link" %>
-        </li>
+            <%= link_to "My Profile", "/profile", class: "nav-link" %>
+          </li>
+          <% end %>
         <li class="nav-item dropdown">
           <%= image_tag "https://i.ya-webdesign.com/images/avatar-icon-png-6.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
