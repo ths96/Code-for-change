@@ -1,4 +1,4 @@
-<h1 class="charity-name"><%=@project.name%></h1>
+<h1 class="charity-name"><span><%=@project.name%></span></h1>
 <div class="container">
   <div class="row">
     <div class="col-md-5">
@@ -16,6 +16,7 @@
           <div class="tab-content mt-3">
             <div class="tab-pane active" id="project-description" role="tabpanel">
               <p class="card-text"><%= @project.project_description %></p>
+              <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project), method: :post %></button>
             </div>
           </div>
           <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
@@ -27,8 +28,6 @@
     </div>
   </div>
 </div>
-
-<button type="button" class="btn btn-flat" ><%= link_to "Request project", project_bookings_path(@project), method: :post %></button>
 
   <h1 class="important-info">Further Information</h1>
 
