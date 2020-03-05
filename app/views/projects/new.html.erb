@@ -15,10 +15,10 @@
        <%= f.input :project_description, as: :text, label: 'Give a short description of your project and the functions and/or design features you want included'%>
        <%= f.input :website, label: 'Enter the link to your organizations website (if applicable)' %>
        <%= f.input :location, label: 'Enter your organizations address' %>
-       <%= f.input :photo, as: :file, label: 'Attatch your detailed project brief' %>
-       <%= f.input :file, as: :file, label: 'Attatch your a photo for your charity'%>
+       <%= f.input :file, as: :file, label: 'Attatch your detailed project brief' %>
+       <%= f.input :photo, label: 'Attatch your a photo for your charity'%>
        <%= f.button :submit, :input_html =>{:class => "create"} %>
-       <%= link_to 'Create a project', new_project_path%>
+       <%= f.submit 'Create a project' %>
      <% end %>
   </div>
 </div>
