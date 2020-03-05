@@ -12,13 +12,11 @@ class ApplicationController < ActionController::Base
 
    def after_sign_in_path_for(resource)
     if resource.coder
-      profile_path
-    elsif resource.charity
-      new_project_path
+      root_path
     elsif !resource.charity
       new_charity_path
     else
-      charity_profile_path
+      root_path
     end
    end
 end
