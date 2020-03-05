@@ -6,11 +6,17 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:index, :show] do
+    member do
+      patch :accept
+    end
+    member do
+      patch :reject
+    end
+  end
+  
   resources :projects
   resources :charities
-
-  get "dashboard", to: "pages#dashboard"
 
   get "profile", to: "pages#profile"
   

@@ -27,6 +27,9 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @pending = @user.bookings.where(status: 'pending')
+    @current = @user.bookings.where(status: 'accepted')
+    @past = @user.bookings.where(status: 'completed')
     @charity = current_user.charity
   end
 

@@ -20,7 +20,6 @@
           </div>
           <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
             <p class="card-text"><%= @project.charity_description %></p>
-            <%= link_to "request", project_bookings_path(project_id: @project.id), method: :post %>
             <p class="charity-link">For more information, please visit: <%= @project.website %></p>
           </div>
         </div>
@@ -28,6 +27,8 @@
     </div>
   </div>
 </div>
+
+<button type="button" class="btn btn-flat" ><%= link_to "Request project", project_bookings_path(@project), method: :post %></button>
 
   <h1 class="important-info">Further Information</h1>
 

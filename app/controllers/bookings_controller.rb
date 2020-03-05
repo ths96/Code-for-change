@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
 
-	def create
-		@booking = Booking.new(project_id: params[:project_id], user_id: current_user.id)
+  def create
+    @booking = Booking.new(project_id: params[:project_id], user_id: current_user.id, status: 'pending')
+    @booking.save
+    redirect_to profile_path
 	end
 
 	def show
@@ -10,7 +12,19 @@ class BookingsController < ApplicationController
 		@project = @booking.project
 		@collaboraters = @project.users
 		@boards = trello_dashboard
-	end 
+  end
+  
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'accepted')
+    redirect_to charity_path(@booking.project.charity)
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 'rejected')
+    redirect_to charity_path(@booking.project.charity)
+  end
 
 	private
 
