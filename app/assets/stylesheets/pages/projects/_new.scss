@@ -1,14 +1,24 @@
 
-.banner {
+.create-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 300px;
-  background-position: cover;
+  background-size: cover;
+  background-position: center center;
   margin-bottom: 50px;
+  text-align: center;
 }
 
+.project-new {
+  .form-control {
+    margin: 8px 0;
+  }
+}
 
 .project {
-  text-align: center;
+ text-align: center;
 }
 
 .instruction {
@@ -18,4 +28,8 @@
 
 .create {
   text-align: center;
+}
+
+.project-from {
+   text-align: left;
 }
