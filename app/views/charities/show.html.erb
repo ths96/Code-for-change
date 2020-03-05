@@ -4,34 +4,36 @@
   <%= @charity.location %>
 
 
-<% @charity.projects.each do |project| %>
-  <div>
-    <%= project.name %>
-  </div>
-  <% project.bookings.where(status: 'pending').each do |booking| %>
-    <h5><%= booking.user.name %></h5>
-    <h5><%= booking.user.linkedin_url %></h5>
-    <h5><%= booking.user.bio %></h5>
-    <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
-    <%= link_to 'Reject', reject_booking_path(booking), method: :patch %>
-  <% end %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Project</th>
+      <th scope="col">Category</th>
+      <th scope="col">Due Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @charity.projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.category %></td>
+        <td><%= project.deadline %></td>
+      </tr>
+      <% project.bookings.where(status: 'pending').each do |booking| %>
+         <h5><%= booking.user.name %></h5> -->
+         <h5><%= booking.user.linkedin_url %></h5> -->
+         <h5><%= booking.user.bio %></h5> -->
+        <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
+        <%= link_to 'Reject', reject_booking_path(booking), method: :patch %>
+      <%end %>
+    <% end %>
+  </tbody>
+</table>
 
-<h3 class = "h3-profile">Add a project</h3>
-<div class ="cards">
-    <div class="card-category"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1577366325138-648f707a75e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
-       <%= link_to 'Register a New Project',new_project_path%>
+
+<div class =“cards”>
+    <div class=“card-category”>
+       <%= link_to "Register a New Project", new_project_path %>
       </div>
     </div>
-
-
-<h3 class ="h3-profile">Past Projects</h3>
-    <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1577366325138-648f707a75e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
-     Change the navbar
-      </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1416138645715-930585fe4ce2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
-     Add more pictures
-    </div>
- </div>
-</div>
+ <!-- Logic to render booking requests  -->
