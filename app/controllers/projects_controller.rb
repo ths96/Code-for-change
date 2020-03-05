@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :category, :project_description, :location, :photo)
+    params.require(:project).permit(:name, :category, :project_description, :location, :trello_token, :photo)
   end
 
   def find_project
