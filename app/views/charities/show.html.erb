@@ -1,8 +1,27 @@
 <h2 class="h2-profile"></h2>
-  <h6><%= @charity.name %></h6>
-  <%= @charity.address %>
-  <%= @charity.location %>
+  <h1><%= @charity.name %></h1>
+  <p>Location <%= @charity.location %></p>
 
+<h3>Projects awaiting applications</h3>
+<% @charity.projects.each do |project| %>
+  <div>
+    <h4> <%= project.name %> </h4>
+  </div>
+  <% project.bookings.where(status: 'pending').each do |booking| %>
+    <h5>Applicant: <%= booking.user.name %></h5>
+    <h5>Applicant LinkedIn: <%= booking.user.linkedin_url %></h5>
+    <h5>Application bio: <%= booking.user.bio %></h5>
+    <%= link_to 'Accept request', accept_booking_path(booking), method: :patch %>
+    <%= link_to 'Reject request', reject_booking_path(booking), method: :patch %>
+  <% end %>
+<% end %>
+
+<h3 class = "h3-profile">Add a project</h3>
+<div class ="cards">
+    <div class="card-category"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1577366325138-648f707a75e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+       <%= link_to 'Register a New Project',new_project_path%>
+      </div>
+    </div>
 
 <table class="table">
   <thead>
@@ -29,6 +48,7 @@
     <% end %>
   </tbody>
 </table>
+
 
 
 <div class =“cards”>
