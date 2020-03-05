@@ -21,6 +21,7 @@
           </div>
           <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
             <p class="card-text"><%= @project.charity_description %></p>
+            <%= link_to "request", project_bookings_path(project_id: @project.id), method: :post %>
             <p class="charity-link">For more information, please visit: <%= @project.website %></p>
           </div>
         </div>
