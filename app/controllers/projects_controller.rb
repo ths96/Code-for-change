@@ -18,6 +18,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    unless current_user.charity
+      redirect_to root_path
+      flash[:alert] = "You aint no chairty"
+    end
+
     @project = Project.new
   end
 

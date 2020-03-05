@@ -1,6 +1,6 @@
+<!-- style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/434337/pexels-photo-434337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" -->
 
-
-<div class="banner-index" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/434337/pexels-photo-434337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+<div class="banner-index" >
   <div class="banner-container">
     <h1>Projects</h1>
     <br>
@@ -36,7 +36,7 @@
   <div class="container">
     <ul class="list-group">
       <% @projects.each do |project| %>
-        <li class="list-group-item">
+<!--         <li class="list-group-item"> -->
           <%#= link_to project_path(project), class: 'card-link' do %>
             <div class="card-product" >
               <% if project.photo.attached? %>
@@ -51,7 +51,7 @@
               <%= link_to "Apply", project_path(project), class: "btn btn-flat" %>
             </div>
           <%# end %>
-        </li>
+        <!-- </li> -->
       <% end %>
   </div>
   <%= link_to "Back to Home", root_path, class: "btn btn-flat" %>
