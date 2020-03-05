@@ -3,7 +3,7 @@
   <%= @charity.address %>
   <%= @charity.location %>
 
-
+<h2> Accept/Reject projects</h2>
 <% @charity.projects.each do |project| %>
   <div>
     <%= project.name %>
@@ -16,6 +16,23 @@
     <%= link_to 'Reject', reject_booking_path(booking), method: :patch %>
   <% end %>
 <% end %>
+
+
+<h2> Running projects</h2>
+<% @charity.projects.each do |project| %>
+  <div>
+    <%= project.name %>
+  </div>
+  <% project.bookings.where(status: 'accepted').each do |booking| %>
+    <%= link_to booking_path(booking) do %>
+      <h5><%= booking.user.name %></h5>
+      <h5><%= booking.user.linkedin_url %></h5>
+      <h5><%= booking.user.bio %></h5>
+      <% end %>
+  <% end %>
+<% end %>
+
+
 
 <h3 class = "h3-profile">Add a project</h3>
 <div class ="cards">
