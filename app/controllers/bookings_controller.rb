@@ -10,8 +10,8 @@ class BookingsController < ApplicationController
 		@booking = Booking.find(params[:id])
 		@user = @booking.user
 		@project = @booking.project
-		@collaborators = @project.users
-		@boards = trello_dashboard
+    @collaborators = @project.users
+		@boards = trello_dashboard(@project) unless @project.trello_token.nil?
   end
 
   def accept
