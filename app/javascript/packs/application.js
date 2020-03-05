@@ -25,3 +25,23 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
+
+
+import Typewriter from 'typewriter-effect/dist/core';
+
+document.addEventListener('turbolinks:load', () => {
+  // this breaks it
+  // initAutocomplete();
+  const target = document.getElementById('banner-description')
+
+  if (target) {
+    const typewriter = new Typewriter(target, {
+      delay: 50
+    })
+
+    typewriter.typeString('Harness your skills while making a difference')
+      .pauseFor(2500)
+      // .deleteAll()
+      .start()
+  }
+})
