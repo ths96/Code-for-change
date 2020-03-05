@@ -19,7 +19,7 @@ class PagesController < ApplicationController
       @tasks = @boards.flatten
     end
   end
-  
+
   def use_api(url)
     json = RestClient.get(url)
     JSON.parse(json)
@@ -27,6 +27,7 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @charity = current_user.charity
   end
 
 end
