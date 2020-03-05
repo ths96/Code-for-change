@@ -57,13 +57,6 @@
         <td><%= project.category %></td>
         <td><%= project.deadline %></td>
       </tr>
-      <% project.bookings.where(status: 'pending').each do |booking| %>
-         <h5><%= booking.user.name %></h5> -->
-         <h5><%= booking.user.linkedin_url %></h5> -->
-         <h5><%= booking.user.bio %></h5> -->
-        <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
-        <%= link_to 'Reject', reject_booking_path(booking), method: :patch %>
-      <%end %>
     <% end %>
   </tbody>
 </table>
