@@ -39,7 +39,9 @@
         <li class="list-group-item">
           <%#= link_to project_path(project), class: 'card-link' do %>
             <div class="card-product" >
-              <img <%= cl_image_tag project.photo.key %>
+              <% if project.photo.attached? %>
+                <%= cl_image_tag project.photo.key %>
+              <% end %>
               <div class="card-product-infos">
                 <h2><%= project.name %></h2>
                 <p>Category: <%=project.category %></p>
