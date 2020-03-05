@@ -18,6 +18,7 @@
        <%= f.input :photo, as: :file, label: 'Attatch your detailed project brief' %>
        <%= f.input :file, as: :file, label: 'Attatch your a photo for your charity'%>
        <%= f.button :submit, :input_html =>{:class => "create"} %>
+       <%= link_to 'Create a project', new_project_path%>
      <% end %>
   </div>
 </div>

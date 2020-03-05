@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :photo
-  has_many :charities, dependent: :destroy
+  has_one :charity, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :projects, through: :bookings
   # has_many :projects, through: :charities
+  has_many :projects, through: :charity
 end
