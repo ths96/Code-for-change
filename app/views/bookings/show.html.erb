@@ -16,21 +16,22 @@
 				<div class="vl"></div>
 				<p>Github repository</p>
 			</div>
-
-			<div class="sm-table trello-updates">
-				<h3>Trello updates</h3>
-				<hr>
-				<div class="lists">
-					<% @boards.each do |list| %>
-					<div class="list">
-						<h5><%= list["name"] %></h5><span class="card-count"><%= list["cards"].length %></span>
-						<% list["cards"].each do |entry|  %>
-							<p><%= entry["name"] %></p>
-						<% end %>
+			<% unless @boards.nil? %>
+				<div class="sm-table trello-updates">
+					<h3>Trello updates</h3>
+					<hr>
+					<div class="lists">
+						<% @boards.each do |list| %>
+						<div class="list">
+							<h5><%= list["name"] %></h5><span class="card-count"><%= list["cards"].length %></span>
+							<% list["cards"].each do |entry|  %>
+								<p><%= entry["name"] %></p>
+							<% end %>
+						</div>
+							<% end %>
 					</div>
-						<% end %>
 				</div>
-			</div>
+			<% end %>
 
 
 			<div class="sm-table collabs">
