@@ -23,6 +23,12 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.charity = current_user.charity
+    if @project.save!
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -41,7 +47,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :category, :project_description, :photo)
+    params.require(:project).permit(:name, :category, :project_description, :location, :photo)
   end
 
   def find_project

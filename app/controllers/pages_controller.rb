@@ -19,7 +19,7 @@ class PagesController < ApplicationController
       @tasks = @boards.flatten
     end
   end
-  
+
   def use_api(url)
     json = RestClient.get(url)
     JSON.parse(json)
@@ -30,6 +30,7 @@ class PagesController < ApplicationController
     @pending = @user.bookings.where(status: 'pending')
     @current = @user.bookings.where(status: 'accepted')
     @past = @user.bookings.where(status: 'completed')
+    @charity = current_user.charity
   end
 
 end
