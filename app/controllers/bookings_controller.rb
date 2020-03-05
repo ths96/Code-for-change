@@ -10,10 +10,10 @@ class BookingsController < ApplicationController
 		@booking = Booking.find(params[:id])
 		@user = @booking.user
 		@project = @booking.project
-		@collaboraters = @project.users
+		@collaborators = @project.users
 		@boards = trello_dashboard
   end
-  
+
   def accept
     @booking = Booking.find(params[:id])
     @booking.update(status: 'accepted')
@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
 	def trello_dashboard
     if current_user.trello_token.present?
       url = "https://api.trello.com/1/members/me/boards?&key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
-			
+
 			boards = use_api(url)
       boards.map! do |board|
         board_url = "https://api.trello.com/1/boards/#{board['id']}?lists=open&list_fields=name&key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
       boards.flatten
     end
   end
-  
+
   def use_api(url)
     json = RestClient.get(url)
     JSON.parse(json)
