@@ -1,27 +1,31 @@
 
 <div class ="session-grid2">
   <!-- LEFT SIDE -->
-  <div>
+  <div class="session-grid-text">
     <% if params[:coder] == 'true' %>
-      <div>
-        <p> Why Join code for change?</p>
+      <div class = "text-top">
+        <p class="p-signin"> Why Join Code for Change?</p>
         <p>Code for Change was made by developers, for developers. Whether you’re a new developer looking to harness your skills, or a professional developer looking to engage in a philanthropic pursuit, Code for Change accommodates to all. </p>
       </div>
-      <div>
-        <p> For New developers:</p>
-        <p>Mastering a new skill can be hard, but with enough practise and persistence there is a lot you can achieve. When applying for web development jobs your portfolio is the best point of reference for future employers to see what you can produce. However, as a new developer, it is often difficult to find opportunities to produce practical products. Code For Change solves this by providing developers with an opportunity to harness their skills and build a portfolio all while making a significant difference.  </p>
+      <div class="d-flex">
+        <div class = text-left>
+          <p class="p-signin"> For New developers:</p>
+          <p>Mastering a new skill can be hard, but with enough practise and persistence there is a lot you can achieve. When applying for web development jobs your portfolio is the best point of reference for future employers to see what you can produce. However, as a new developer, it is often difficult to find opportunities to produce practical products. Code For Change solves this by providing developers with an opportunity to harness their skills and build a portfolio all while making a significant difference.  </p>
+        </div>
+        <div class ="text-notleft">
+          <p class="p-signin"> For Professional developers:</p>
+          <p>While donating to charity is a great way to engage in philanthropy, dedicating your time and utilizing your skills is a creative way to contribute to the greater good. Additionally, with Code For Change you aren’t left wondering what your contribution has been used for. Once you submit your project you can be assured that your time has created a tangible impact. Join Code For Change today to join a group of dedicated, like-minded individuals, and start making a difference now.   </p>
+        </div>
       </div>
-      <div>
-        <p> For Professional developers:</p>
-        <p>While donating to charity is a great way to engage in philanthropy, dedicating your time and utilizing your skills is a creative way to contribute to the greater good. Additionally, with Code For Change you aren’t left wondering what your contribution has been used for. Once you submit your project you can be assured that your time has created a tangible impact. Join Code For Change today to join a group of dedicated, like-minded individuals, and start making a difference now.   </p>
-      </div>
+
     <% else %>
-      <div>
-        <p>How can we help your organization?</p>
+      <div class ="text-charity">
+        <p class="p-signin">How can we help your organization?</p>
         <p>Code For Change provides socially conscious organizations around the world with high quality, extremely affordable, digital products. We are committed to providing organizations with innovative, practical and sustainable digital solutions. Our developers are highly qualified and have all either obtained a Computer Science degree from a top university, completed a top-ranked coding bootcamp or work as a developer in an established company. Code For Change is dedicated to providing a top-tier solution to your organizations unique digital needs. </p>
       </div>
     <% end %>
   </div>
+
 
   <!-- RIGHT SIDE -->
   <div class="form-container">
@@ -29,7 +33,7 @@
       <%= f.error_notification %>
 
       <% if params[:coder] == 'true' %>
-        <h2 class="h2-signup">Sign up as a coder</h2>
+        <h2 class="h2-signup">Sign up as a Coder</h2>
         <div class="form-inputs">
           <%= f.input :email,
                       required: true,
@@ -73,7 +77,7 @@
 
         <div class= "form-actions">
           <%= f.button :submit, "Sign up", class: "btn btn-flat" %>
-          <%= link_to 'Back to Listings',new_project_path%>
+
         </div>
       <% end %>
     <% end %>
