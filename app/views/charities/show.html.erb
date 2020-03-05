@@ -1,10 +1,21 @@
 <h2 class="h2-profile"></h2>
-  <%= @charity.name %>
+  <h6><%= @charity.name %></h6>
   <%= @charity.address %>
   <%= @charity.location %>
 
 
-
+<% @charity.projects.each do |project| %>
+  <div>
+    <%= project.name %>
+  </div>
+  <% project.bookings.where(status: 'pending').each do |booking| %>
+    <h5><%= booking.user.name %></h5>
+    <h5><%= booking.user.linkedin_url %></h5>
+    <h5><%= booking.user.bio %></h5>
+    <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
+    <%= link_to 'Reject', reject_booking_path(booking), method: :patch %>
+  <% end %>
+<% end %>
 
 <h3 class = "h3-profile">Add a project</h3>
 <div class ="cards">
