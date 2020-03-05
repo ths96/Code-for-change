@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 		@user = @booking.user
 		@project = @booking.project
 		@collaboraters = @project.users
-		@boards = trello_dashboard
+		@boards = trello_dashboard(@project)
   end
   
   def accept
@@ -28,16 +28,16 @@ class BookingsController < ApplicationController
 
 	private
 
-	def trello_dashboard
-    if current_user.trello_token.present?
-      url = "https://api.trello.com/1/members/me/boards?&key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
+  def trello_dashboard(project)
+    if project.trello_token.present?
+      url = "https://api.trello.com/1/members/me/boards?&key=#{ENV['TRELLO_API_KEY']}&token=#{project.trello_token}"
 			
-			boards = use_api(url)
+      boards = use_api(url)
       boards.map! do |board|
-        board_url = "https://api.trello.com/1/boards/#{board['id']}?lists=open&list_fields=name&key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
+        board_url = "https://api.trello.com/1/boards/#{board['id']}?lists=open&list_fields=name&key=#{ENV['TRELLO_API_KEY']}&token=#{project.trello_token}"
         result = use_api(board_url)
         result['lists'].each do |list|
-          list_url = "https://api.trello.com/1/lists/#{list['id']}/cards?key=#{ENV['TRELLO_API_KEY']}&token=#{current_user.trello_token}"
+          list_url = "https://api.trello.com/1/lists/#{list['id']}/cards?key=#{ENV['TRELLO_API_KEY']}&token=#{project.trello_token}"
           list['cards'] = use_api(list_url)
         end
       end

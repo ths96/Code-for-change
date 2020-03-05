@@ -12,6 +12,9 @@
        <%= f.input :point_of_contact, label: 'Enter an e-mail for the individual who will be the point of contact for the duration of the project'%>
        <%= f.input :project_description, as: :text, label: 'Give a short description of your project and the functions and/or design features you want included'%>
        <%= f.input :file, as: :file, label: 'Attatch your detailed project brief' %>
+       <%= f.input :photo, label: 'Attatch your a photo for your charity'%>
+       <%= f.input :trello_token %>
+       <%= link_to 'Authorize Trello', "https://trello.com/1/authorize?expiration=never&name=Code For Change&scope=read&response_type=token&key=#{ENV['TRELLO_API_KEY']}", target: '_blank', class:"btn btn-info" %>
        <%= f.button :submit, :input_html =>{:class => "create"} %>
        <%= f.submit 'Create a project' %>
      <% end %>

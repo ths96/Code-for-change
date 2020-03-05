@@ -11,7 +11,7 @@
 <br>
 
 <div class ="linkedin-url">
- <li><%= current_user.linkedin_url%></li>
+ <li><%= link_to current_user.linkedin_url %></li>
  </div>
  <br>
 
@@ -37,6 +37,21 @@
         <h5>Deadline: <%= booking.project.deadline %></h5>
     </div>
       <% end %>
+  </div>
+
+<h3 class = "h3-profile"> Current </h3>
+
+<div class="cards">
+  <% current_user.bookings.where(status: 'accepted').each do |booking| %>
+  <%= link_to booking_path(booking) do %>
+    <div class="card card-profile">
+      <h5>Project name: <%= booking.project.name %></h5>
+      <h5>Charity name: <%= booking.project.charity.name %></h5>
+      <h5>Location: <%= booking.project.location %></h5>
+      <h5>Deadline: <%= booking.project.deadline %></h5>
+    </div>
+  <% end %>
+  <% end %>
   </div>
 
 
