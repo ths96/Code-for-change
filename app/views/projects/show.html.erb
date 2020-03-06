@@ -1,4 +1,6 @@
-<h1 class="charity-name"><span><%=@project.name%></span></h1>
+<div class="d-flex justify-content-center">
+  <h1 class="charity-name"><%=@project.name%></h1>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-5">
@@ -12,16 +14,16 @@
           <span class="tab active" role="tab" aria-controls="project-description" aria-selected="true">Project Information</span>
           <span class="tab" role="tab" aria-controls="charity-description" aria-selected="false">Charity Information</span>
         </div>
-  <%= @project.charity.name %>
-
-
-
-
-        <div class="card-body">
+         <div class="card-body">
           <div class="tab-content mt-3">
             <div class="tab-pane active" id="project-description" role="tabpanel">
               <p class="card-text"><%= @project.project_description %></p>
-              <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project), method: :post %></button>
+              <div class="project-card-overview">
+                <h4 class="overview">Key Information:</h4>
+                <p class="card-inform"><i class="far fa-calendar-alt">  <%= @project.deadline %></i></p>
+                <p class="card-inform"><i class="fas fa-laptop-code">  <%= @project.category %></i></p>
+                <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project), method: :post %></button>
+              </div>
             </div>
           </div>
           <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
