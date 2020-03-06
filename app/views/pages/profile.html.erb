@@ -1,88 +1,50 @@
-<div class = "container">
-<div class= "user-name">
-<%= current_user.name %>
-</div>
-<br>
-<%#= cl_image_tag @user.photo.key %>
-
-<div class = "user-bio">
- <%= current_user.bio %>
-</div>
-<br>
-
-<div class ="linkedin-url">
- <li><%= link_to current_user.linkedin_url %></li>
- </div>
- <br>
-
- <div class="user-location">
- <%= current_user.location %>
-</div>
-</div>
-
-
-
-
-<h2 class="h2-profile"> My projects </h2>
-
-<div class="container">
-<h3 class = "h3-profile"> Pending </h3>
-
-<div class="cards">
-      <% current_user.bookings.where(status: 'pending').each do |booking| %>
-  <div class="card card-profile">
-        <h5>Project name: <%= booking.project.name %></h5>
-        <h5>Charity name: <%= booking.project.charity.name %></h5>
-        <h5>Location: <%= booking.project.location %></h5>
-        <h5>Deadline: <%= booking.project.deadline %></h5>
+<div class="d-flex align-items-end" style="margin: 50px">
+  <div class = "user-info">
+    <div>
+      <div class= "user-name">
+      <%= current_user.name %>
+      </div>
+      <br>
+      <div class = "user-bio">
+       <%= current_user.bio %>
+      </div>
+      <br>
+      <div class ="linkedin-url">
+       <p><%= link_to "LinkedIn", current_user.linkedin_url, target: '_blank' %></p>
+       </div>
+       <br>
+       <div class="user-location">
+       <%= current_user.location %>
+      </div>
     </div>
-      <% end %>
+    <%= cl_image_tag @user.photo.key, class: 'user-photo' %>
   </div>
-
-<h3 class = "h3-profile"> Current </h3>
-
-<div class="cards">
-  <% current_user.bookings.where(status: 'accepted').each do |booking| %>
-  <%= link_to booking_path(booking) do %>
-    <div class="card card-profile">
-      <h5>Project name: <%= booking.project.name %></h5>
-      <h5>Charity name: <%= booking.project.charity.name %></h5>
-      <h5>Location: <%= booking.project.location %></h5>
-      <h5>Deadline: <%= booking.project.deadline %></h5>
-    </div>
-  <% end %>
-  <% end %>
-  </div>
-
-
-    <div class="cards">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1576826631935-d0c8e250fdc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
-      Salvation Army
-      </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
-      Oxfam
-    </div>
+  <%= link_to "Search for a Project", projects_path, class: "btn btn-flat charity-show-button" %>
 </div>
 
+<h2 class="h2-projects"> My projects </h2>
 
-<h3 class = "h3-profile">Current</h3>
-    <div class="cards">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
-      Save the Children
-      </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1564121211835-e88c852648ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
-      Mind
-    </div>
+<div class ="your-projects">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">PROJECT</th>
+      <th scope="col">CHARITY</th>
+      <th scope="col">LOCATION</th>
+      <th scope="col">STATUS</th>
+      <th scope="col">DEADLINE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.bookings.each do |booking| %>
+        <tr>
+          <td><%= link_to booking.project.name, booking_path(booking) %></td>
+          <td><%= booking.project.charity.name %></td>
+          <td><%= booking.project.location %></td>
+          <td><%= booking.status %></td>
+          <td><%= booking.project.deadline %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
-
-<h3 class ="h3-profile">Past</h3>
-    <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1577366325138-648f707a75e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
-      Cancer Research
-      </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1416138645715-930585fe4ce2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
-     Save the Turtles
-    </div>
- </div>
-</div>
-
