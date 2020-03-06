@@ -35,25 +35,3 @@
   padding: 16px;
 }
 
-.btn-request{
-  width: 100%;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: black;
-  transition: background 0.3s ease;
-  a {
-    color: #fff;
-  }
-}
-
-.btn-request:hover {
-  background: #8B8C89;
-  color: white;
-}
-
-#project-description {
-  height: 480px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}

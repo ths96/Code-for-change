@@ -1,3 +1,12 @@
+
+body{
+
+  background-color: #ffffff;
+}
+
+
+
+//sign up
 .session-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -65,13 +74,13 @@
 //this styles the form on both pages
 
 #new_user {
-  width: 600px;
+  width: 500px;
   margin: auto;
   margin-top: 50px;
   background: white;
   padding: 10px 20px;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   h2 {
     font-size: 45px;
     font-family: ‘Oswald’, sans-serif;
@@ -89,11 +98,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-
 }
-
-
-
 
 .h2-signup {
   text-align: center;
@@ -101,10 +106,11 @@
   font-family: ‘Oswald’, sans-serif;
 }
 
-.h2-profile {
+.h2-projects {
   text-align: center;
   font-size: 50px;
   font-family: ‘Oswald’, sans-serif;
+  margin-bottom: 20px;
 }
 
 .h3-profile {
@@ -114,15 +120,35 @@
 }
 
 
+
+
+//profile page for coder
+
+.user-info {
+  padding: 20px;
+  width: 600px;
+  border: 1px solid rgb(209, 208, 208);
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .user-name {
   font-size: 34px;
-  padding: 10px;
   font-family: ‘Oswald’, sans-serif;
 }
 
 .user-bio {
-  width: 45%;
+  width: 80%;
   font-family: ‘Oswald’, sans-serif;
+}
+
+.user-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .user-location {
@@ -134,9 +160,17 @@
   margin: 15px;
 }
 
-.btn {
- margin: 10px;
-}
 
+.your-projects {
+  background-color: rgb(244,244,244);
+  padding: 20px;
+  margin: 50px;
+  border: 1px solid rgb(209, 208, 208);
+  color: rgb(58,71,80);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+
+
+}
 
 

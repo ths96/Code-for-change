@@ -1,28 +1,68 @@
 .body-dashboard {
 background-color: white;
 }
+
+.collabs-all {
+	display: flex;
+	align-items: center;
+	overflow: scroll;
+}
+.collab-profile {
+		background: rgb(255, 255, 255);
+    width: 200px;
+    height: 100px;
+		object-fit: contain;
+		margin: 20px;
+		display: flex;
+		align-items: center;
+		padding: 20px;
+
+		a {
+			color: grey;
+			padding: 3px;
+		}
+		.icon-profile-pic {
+			font-size: 50px;
+			color: grey;
+			padding: 10px;
+		}
+}
+
+
+.icon-dashboard {
+    font-size: 35px;
+    padding: 10px;
+    top: 7px;
+    position: relative;
+    color: #cc5f5f;
+}
+
+
 .your-project {
-background: rgb(117,130,133);
 padding: 120px 80px 50px;
-color: white;
+color: rgb(0, 0, 0);
 position: relative;
 top: -66px;
 
+
 	.img-dashboard {
 	position: absolute;
-	border-radius: 5%;
-	width: 90px;
-	height: 90px;
+	width: 190px;
+	height: 190px;
 	object-fit: cover;
 	border: 2px solid white;
-	left: 330px;
+	left: 390px;
 	}
 
 	div {
-		display: inline-block;
-		position: relative;
-    top: 19px;
-    right: -355px;
+    display: inline-block;
+    position: relative;
+    top: 70px;
+    left: 510px;
+    background-color: white;
+    color: black;
+    /* border-radius: 5px; */
+    padding: 17px;
 	}
 
 	h4 {
@@ -46,14 +86,18 @@ top: -66px;
     grid-gap: 50px 100px;
 		.sm-table {
 			margin-bottom: 20px;
+			background-color: whitesmoke;
+			border: 1px solid rgb(230, 228, 228);
+			padding: 30px;
+			max-width: 60%;
 		}
 		.docs {
 			p {
-				  display: inline-block;
-  width: 200px;
-  height: 50px;
-  padding: 5px;
-  background-color: yellow;
+				display: inline-block;
+				width: 300px;
+				height: 50px;
+				padding: 5px;
+				color: rgb(168, 167, 167);
 			}
 
 		}
@@ -97,4 +141,3 @@ top: -66px;
 		}
 	}
 }
-
