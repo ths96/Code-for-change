@@ -1,71 +1,63 @@
 <h2 class="h2-profile"></h2>
-
-  <h1><%= @charity.name %></h1>
-  <p>Location <%= @charity.location %></p>
-
-  <h3>Projects awaiting applications</h3>
-
-<% @charity.projects.each do |project| %>
-  <div>
-    <h4> <%= project.name %> </h4>
+  <div class="your-charity-details">
+    <h1><%= @charity.name %></h1>
+    <p>Location <%= @charity.location %></p>
   </div>
-  <% project.bookings.where(status: 'pending').each do |booking| %>
-    <h5>Applicant: <%= booking.user.name %></h5>
-    <h5>Applicant LinkedIn: <%= booking.user.linkedin_url %></h5>
-    <h5>Application bio: <%= booking.user.bio %></h5>
-    <%= link_to 'Accept request', accept_booking_path(booking), method: :patch %>
-    <%= link_to 'Reject request', reject_booking_path(booking), method: :patch %>
-  <% end %>
-<% end %>
 
-
-<h2> Running projects</h2>
-<% @charity.projects.each do |project| %>
-  <div>
-    <%= project.name %>
-  </div>
-  <% project.bookings.where(status: 'accepted').each do |booking| %>
-    <%= link_to booking_path(booking) do %>
-      <h5><%= booking.user.name %></h5>
-      <h5><%= booking.user.linkedin_url %></h5>
-      <h5><%= booking.user.bio %></h5>
+<div class="your-charity-applications design-table">
+  <h3>Applications</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">PROJECT</th>
+        <th scope="col">APPLICANT</th>
+        <th scope="col">LINKEDIN PROFILE</th>
+        <th scope="col">BIO</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @charity.projects.each do |project| %>
+        <% project.bookings.where(status: 'pending').each do |booking| %>
+        <tr class="test-d">
+          <td><%= project.name %></td>
+          <td><%= booking.user.name %></td>
+          <td><%= booking.user.linkedin_url %></td>
+          <td><%= booking.user.bio %></td>
+          <td><%= link_to 'Accept', accept_booking_path(booking), method: :patch %></td>
+          <td><%= link_to 'Reject', reject_booking_path(booking), method: :patch %></td>
+        </tr>
+        <% end %>
       <% end %>
-  <% end %>
-<% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="your-charity-projects">
+  <h3>Running projects</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Project</th>
+          <th scope="col">Category</th>
+          <th scope="col">Due Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @charity.projects.each do |project| %>
+          <tr>
+            <td><%= project.name %></td>
+            <td><%= project.category %></td>
+            <td><%= project.deadline %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
 
 
 
 <h3 class = "h3-profile">Add a project</h3>
-<div class ="cards">
-    <div class="card-category"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1577366325138-648f707a75e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
-       <%= link_to 'Register a New Project',new_project_path%>
-      </div>
-    </div>
+<%= link_to "Register a New Project", new_project_path %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Project</th>
-      <th scope="col">Category</th>
-      <th scope="col">Due Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @charity.projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.category %></td>
-        <td><%= project.deadline %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-<div class =“cards”>
-    <div class=“card-category”>
-       <%= link_to "Register a New Project", new_project_path %>
-      </div>
-    </div>
- <!-- Logic to render booking requests  -->
