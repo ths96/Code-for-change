@@ -6,9 +6,6 @@
   </div>
   <%= link_to "Register a Project", new_project_path, class: "btn btn-flat charity-show-button" %>
 </div>
-
-
-
 <div class="your-charity-applications design-table">
   <h3>Applications</h3>
   <table class="table">
@@ -24,7 +21,7 @@
     </thead>
     <tbody>
       <% @charity.projects.each do |project| %>
-        <% project.bookings.where(status: 'Pending').each do |booking| %>
+        <% project.bookings.where(status: 'pending').each do |booking| %>
         <tr class="test-d">
           <td><%= project.name %></td>
           <td><%= booking.user.name %></td>
