@@ -1,0 +1,5 @@
+meta_product_name: "Code for Change"
+meta_title: "Code for Change - Harness your skills while making a difference"
+meta_description: "Code for Change was made by developers, for developers. Whether you’re a new developer looking to harness your skills, or a professional developer looking to engage in a philanthropic pursuit, Code for Change accommodates to all."
+meta_image: "app/assets/images/charity-placeholder.png" # should exist in `app/assets/images/`
+twitter_account: "@twitter"   # required for Twitter Cards
