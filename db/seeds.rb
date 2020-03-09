@@ -33,7 +33,7 @@ Booking.create(user: user3, project: turtles, status: 'accepted')
 user4 = User.create!(email: 'kathryn@kathryn.com', password: 'test1234')
 charity4 = Charity.create!(name: 'Tree Planter', description:'Planting Trees everywhere', location: 'Manaus, Brazil', user: user4)
 trees = Project.create!(name: 'Tree Planter', category: 'Full-stack', charity_description: 'Here at tree planter we are trying to combat the effects of globale warming by planting more trees. We get stuck in with local communities to cultivate lasting change in their neighbourhoods – whether it’s revitalising forgotten spaces, creating healthier environments or getting people excited about growing, foraging and eating healthy food.', website: 'www.treeplanter.org', location: 'Brazil', project_description: 'We would like to implement a map feature to keep track of our planting', deadline: '04/05/2020', charity: charity4)
-url_trees = "https://ichef.bbci.co.uk/wwfeatures/live/976_549/images/live/p0/7n/19/p07n19vr.jpg"
+url_trees = "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
 trees.photo.attach(io: open(url_trees), filename: 'trees_1')
 Booking.create(user: user4, project: turtles, status: 'accepted')
 
