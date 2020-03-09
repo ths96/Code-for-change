@@ -49,7 +49,7 @@
           <%= f.input :name %>
           <%= f.input :photo, as: :file %>
           <%= f.input :bio, placeholder:"Tell us about yourself..." %>
-          <%= f.input :location %>
+          <%= f.input :location, input_html: {class:"location_input"} %>
           <%= f.input :linkedin_url %>
           <%= f.input :coder, as: :hidden, input_html: {value: true} %>
         </div>
