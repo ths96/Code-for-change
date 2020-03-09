@@ -5,8 +5,12 @@
         <%= simple_form_for @charity do |f| %>
           <%= f.input :name %>
           <%= f.input :description %>
+
+          <%= f.input :photo, as: :file, label: 'Logo' %>
+
           <%= f.input :location, input_html: {class:"location_input"} %>
           <%= f.input :address %>
+
           <%= f.input :email %>
           <%= f.input :website %>
           <%= f.input :charity_registration_number %>
@@ -17,7 +21,4 @@
   </div>
 </div>
 
-<div class="session3text">
 
-
-  </div>

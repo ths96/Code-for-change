@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.charity = current_user.charity
+    @project.deadline = "#{project_params['deadline(3i)']}/#{project_params['deadline(2i)']}/#{project_params['deadline(1i)']}"
     if @project.save!
       redirect_to project_path(@project)
     else
@@ -40,14 +41,15 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    charity = @project.charity
     @project.destroy
-		redirect_to projects_path
+		redirect_to charity_path(charity)
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:name, :category, :project_description, :location, :trello_token, :photo)
+    params.require(:project).permit(:name, :category, :project_description, :location, :trello_token, :photo, :deadline)
   end
 
   def find_project
