@@ -1,38 +1,36 @@
-<h1 class="charity-name"><span><%=@project.name%></span></h1>
-<div class="container">
-  <div class="row">
-    <div class="col-md-5">
-      <% if @project.photo.attached? %>
-        <%= cl_image_tag @project.photo.key, class: 'project-photo' %>
-      <% end %>
-    </div>
-    <div class="col-md-7">
-      <div class="card text-center">
-        <div class="card-header tab-header d-flex align-items-center justify-content-start">
-          <span class="tab active" role="tab" aria-controls="project-description" aria-selected="true">Project Information</span>
-          <span class="tab" role="tab" aria-controls="charity-description" aria-selected="false">Charity Information</span>
-        </div>
-  <%= @project.charity.name %>
-
-
-
-
-        <div class="card-body">
-          <div class="tab-content mt-3">
-            <div class="tab-pane active" id="project-description" role="tabpanel">
-              <p class="card-text"><%= @project.project_description %></p>
-              <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project), method: :post %></button>
-            </div>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @project.photo.key %>);">
+  <h1 class="charity-name"><%=@project.name%></h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7">
+        <div class="card text-center">
+          <div class="card-header tab-header d-flex align-items-center justify-content-start">
+            <span class="tab active" role="tab" aria-controls="project-description" aria-selected="true">Project Information</span>
+            <span class="tab" role="tab" aria-controls="charity-description" aria-selected="false">Charity Information</span>
           </div>
-          <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
-            <p class="card-text"><%= @project.charity_description %></p>
-            <p class="charity-link">For more information, please visit: <%= @project.website %></p>
+           <div class="card-body">
+            <div class="tab-content mt-3">
+              <div class="tab-pane active" id="project-description" role="tabpanel">
+                <p class="card-text"><%= @project.project_description %></p>
+                <div class="project-card-overview">
+                  <h4 class="overview">Key Information:</h4>
+                  <p class="card-inform"><i class="far fa-calendar-alt">  <%= @project.deadline %></i></p>
+                  <p class="card-inform"><i class="fas fa-laptop-code">  <%= @project.category %></i></p>
+                  <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project), method: :post %></button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
+              <p class="card-text"><%= @project.charity_description %></p>
+              <p class="charity-link">For more information, please visit: <%= @project.website %></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
   <h1 class="important-info">Further Information</h1>
 

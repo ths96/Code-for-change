@@ -9,17 +9,19 @@
 	<div class="container dashboard-page">
 		<div class="tables">
 			<div class="sm-table docs">
-				<h3>Documents</h3>
-				<p>Project brief download</p>
+				<h3>DOCUMENTS</h3>
+				<% if @project.file.attached? %>
+					<p><%= link_to "Project brief download: ", rails_blob_path(@project.file, disposition: 'attachment') %> <i class="fas fa-file-download icon-dashboard"></i></p>
+				<% end %>
 				<div class="vl"></div>
-				<p>charity information download</p>
+				<p>charity information download <i class="fas fa-file-download icon-dashboard"></i></p>
 				<div class="vl"></div>
-				<p>Github repository</p>
+				<p>Github repository <i class="fab fa-github icon-dashboard"></i></p>
 			</div>
+
 			<% unless @boards.nil? %>
 				<div class="sm-table trello-updates">
-					<h3>Trello updates</h3>
-					<hr>
+					<h3>TRELLO UPDATES</h3>
 					<div class="lists">
 						<% @boards.each do |list| %>
 						<div class="list">
@@ -35,15 +37,17 @@
 
 
 			<div class="sm-table collabs">
-				<h3>Collaborators</h3>
-				<hr>
-				<div class="collab-profile">
-					<%@collaborators.each do |collaborator| %>
-					<h5><%= collaborator.name %></h5>
-					<% end %>
-					<a href="www.slack.com"> @slack </a>
-					<a href="www.linkedIn.com"> @linkedIn </a>
-				</div>
+				<h3>COLLABORATORS</h3>
+				<div class="collabs-all">
+						<%@collaborators.each do |collaborator| %>
+							<div class="collab-profile">
+								<i class="fas fa-user-circle icon-profile-pic"></i>
+								<h5><%= collaborator.name %></h5>
+								<a href="www.slack.com"> @slack </a>
+								<a href="www.linkedIn.com"> @linkedIn </a>
+							</div>
+						<% end %>
+					</div>
 			</div>
 		</div>
 	</div>

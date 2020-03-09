@@ -1,5 +1,5 @@
 
-<div class="create-banner" style="background-image: url(https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)">
+<div class="create-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)">
   <h1 class="project"><b>REGISTER A PROJECT NOW</b></h1>
 </div>
 
@@ -10,6 +10,7 @@
        <%= f.input :category, :collection => %w[Front-end Back-end Full-stack], label: 'Enter the type of project you want completed' %>
        <%= f.input :deadline, as: :date, label: 'Submit the date you would like your project to be completed' %>
        <%= f.input :point_of_contact, label: 'Enter an e-mail for the individual who will be the point of contact for the duration of the project'%>
+       <%= f.input :location, label: 'Enter the address of your charity', input_html: {class:"location_input"}%>
        <%= f.input :project_description, as: :text, label: 'Give a short description of your project and the functions and/or design features you want included'%>
        <%= f.input :file, as: :file, label: 'Attatch your detailed project brief' %>
        <%= f.input :photo, label: 'Attatch your a photo for your charity'%>
