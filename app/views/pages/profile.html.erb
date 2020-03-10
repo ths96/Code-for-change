@@ -1,5 +1,7 @@
-<div class="d-flex align-items-end" style="margin: 50px">
-  <div class="user-info">
+<div class="banner-profile" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");'>
+
+<div class="d-flex align-items-end" style="margin: 0 50px;">
+  <div class="user-info" style="background-color: #ffffff; margin-top: 50px">
     <div>
       <div class="user-name"style="font-family: 'Oswald', sans-serif;">
       <%= current_user.name %>
@@ -30,17 +32,18 @@
           <%= link_to current_user.github_url, target: '_blank' do %>
             <i class="fab fa-github"></i>
           <% end %>
-        </div>
       </div>
     </div>
-
   </div>
+
+</div>
   <%= link_to "Search for a Project", projects_path, class: "btn btn-flat charity-show-button" %>
+  </div>
 </div>
 
 <!-- <h2 class="h2-projects"> MY PROJECTS </h2> -->
-<p style="font-family: 'Oswald'; font-size: 50px; text-align: center;">MY PROJECTS</p>
-<div class="your-projects">
+<p style="font-family: 'Oswald'; font-size: 50px; text-align: center; margin-top: 20px;">MY PROJECTS</p>
+<div class="your-projects" id="projects">
 <table class="table">
   <thead>
     <tr>
@@ -89,7 +92,7 @@
           <td><%= like.project.location %></td>
           <td><%= like.project.deadline %></td>
           <td>
-             <%= link_to like_path(like, page: 'profile'), method: :delete do %>
+             <%= link_to like_path(like, page: 'profile'), method: :delete, class: 'heart-profile' do %>
                 <i class="fas fa-heart"></i>
               <% end %>
           </td>
