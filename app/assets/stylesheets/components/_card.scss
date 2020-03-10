@@ -1,7 +1,70 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  // margin-top: 20px;
+  // height: 100px;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  border-radius: 8px;
+
+  .btn-flat {
+    margin-left: auto;
+  }
+}
+
+.card-product:hover {
+  text-decoration: none;
+  color: black;
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.card-product img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+.project-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-flat-index {
+  border-radius: 0 !important;
+}
+
+.btn-flat-index:hover {
+  background-color: #EF6666;
+  color: white;
 }
 
 .card-category-home {
@@ -20,10 +83,10 @@
 }
 
 .card-category {
-  background-size: cover;
+  // background-size: cover;
   background-position: center;
   height: 180px;
-  display: flex;
+  // display: flex;
   justify-content: center;
   align-items: center;
   color: white;
@@ -34,48 +97,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-
-  .btn-flat {
-    margin-left: auto;
-  }
-}
-
-.card-product:hover {
-  text-decoration: none;
-  color: black;
-  opacity: 0.9;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-.card-product img {
+.card-category img {
   height: 100%;
-  width: 120px;
+  width: 40px;
   object-fit: cover;
 }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-/////////////////////////////////////
+///////////////////////////////////
 
 .card-container {
   display: flex;
@@ -137,10 +166,6 @@
   white-space: nowrap;
   overflow:  hidden;
   text-overflow: ellipsis;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
 }
 
 .list-group-item {
