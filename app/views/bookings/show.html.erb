@@ -1,53 +1,76 @@
-<div class="body-dashboard">
+<div class="container-all-pages">
 	<div class="your-project">
-		<img class="img-dashboard" src="https://www.adomonline.com/wp-content/uploads/2019/06/istock-839295596.jpg" alt="charity picture">
-		<div>
-			<h4>You are working on</h4>
-			<h3><%= @project.name %></h3>
-		</div>
-	</div>
-	<div class="container dashboard-page">
-		<div class="tables">
-			<div class="sm-table docs">
-				<h3>DOCUMENTS</h3>
-				<% if @project.file.attached? %>
-					<p><%= link_to "Project brief download: ", rails_blob_path(@project.file, disposition: 'attachment') %> <i class="fas fa-file-download icon-dashboard"></i></p>
-				<% end %>
-				<div class="vl"></div>
-				<p>charity information download <i class="fas fa-file-download icon-dashboard"></i></p>
-				<div class="vl"></div>
-				<p>Github repository <i class="fab fa-github icon-dashboard"></i></p>
+		<%= cl_image_tag @project.photo.key, class: 'img-dashboard' %>
+    <div class="booking-info">
+			<div>
+				<h5>You are working on</h5>
+				<h4><%= @project.name %></h4>
 			</div>
-
-			<% unless @boards.nil? %>
-				<div class="sm-table trello-updates">
-					<h3>TRELLO UPDATES</h3>
-					<div class="lists">
-						<% @boards.each do |list| %>
-						<div class="list">
-							<h5><%= list["name"] %></h5><span class="card-count"><%= list["cards"].length %></span>
-							<% list["cards"].each do |entry|  %>
-								<p><%= entry["name"] %></p>
+				<div class="sm-table docs">
+					<div class="all-info-download">
+						<div class="info-download">
+							<% if @project.file.attached? %>
+								<p><i class="fas fa-arrow-circle-down icon-dashboard"></i><%= link_to "Project brief", rails_blob_path(@project.file, disposition: 'attachment') %></p>
 							<% end %>
 						</div>
-							<% end %>
+						<div class="info-download">
+							<p><i class="fab fa-github icon-dashboard"></i>Github</p>
+						</div>
 					</div>
 				</div>
-			<% end %>
+		</div>
+	</div>
 
-
-			<div class="sm-table collabs">
-				<h3>COLLABORATORS</h3>
-				<div class="collabs-all">
-						<%@collaborators.each do |collaborator| %>
-							<div class="collab-profile">
-								<i class="fas fa-user-circle icon-profile-pic"></i>
-								<h5><%= collaborator.name %></h5>
-								<a href="www.slack.com"> @slack </a>
-								<a href="www.linkedIn.com"> @linkedIn </a>
-							</div>
-						<% end %>
+	<div class="section-seperator">
+		<% unless @boards.nil? %>
+			<div class="sm-table trello-updates">
+				<h3>TRELLO UPDATES</h3>
+				<div class="lists">
+					<% @boards.each do |list| %>
+					<div class="list">
+					<div class="d-flex align-items-center justify-content-center black-bg">
+						<h5><%= list["name"].upcase %></h5>
+						<div class="card-count d-flex align-items-center justify-content-center"><%= list["cards"].length %></div>
 					</div>
+					<ul>
+						<% list["cards"].each do |entry|  %>
+							<li><%= entry["name"] %></li>
+						<% end %>
+					</ul>
+					</div>
+						<% end %>
+				</div>
+			</div>
+		<% end %>
+	</end>
+
+	<div class="section-seperator">
+		<div class="sm-table collabs">
+			<h3>COLLABORATORS</h3>
+			<div class="collabs-all">
+					<% @collaborators.each do |collaborator| %>
+						<div class="each-collab">
+							<div class="collab-name">
+								<p><%= collaborator.name %></p>
+							</div>
+							<div class="collab-profile">
+								<% if collaborator.photo.attached? %>
+									<%= link_to collaborator.linkedin_url, target: '_blank' do %>
+										<%= cl_image_tag collaborator.photo.key, class: 'user-photo round-avatar' %>
+									<% end %>
+								<% else %>
+									<%= link_to collaborator.linkedin_url, target: '_blank' do %>
+										<%= image_tag 'default-avatar.jpg', class: 'user-photo round-avatar' %>
+									<% end %>
+								<% end %>
+								<div class="collab-info">
+									<h5><%= collaborator.name %></h5>
+									<p><%= link_to "LinkedIn", current_user.linkedin_url, target: '_blank' %></p>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
