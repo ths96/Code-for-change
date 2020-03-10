@@ -103,7 +103,6 @@
   object-fit: cover;
 }
 
-
 ///////////////////////////////////
 
 .card-container {
@@ -175,6 +174,25 @@
 .card-link {
   text-decoration: none;
   color: black;
+}
+
+.title-heart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.save-heart-index {
+  color: red;
+}
+
+.save-heart-index:hover {
+  color: red;
+  font-weight: bold;
+}
+
+.save-heart:hover {
+  color: red;
 }
 
 // Smallest device
