@@ -16,7 +16,7 @@
                   <h4 class="overview">Key Information:</h4>
                   <p class="card-inform"><i class="far fa-calendar-alt">  <%= @project.deadline %></i></p>
                   <p class="card-inform"><i class="fas fa-laptop-code">  <%= @project.category %></i></p>
-                  <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project), method: :post %></button>
+                  <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project, page: 'show'), method: :post %></button>
                 </div>
               </div>
             </div>
@@ -25,6 +25,15 @@
               <p class="charity-link">For more information, please visit: <%= @project.website %></p>
             </div>
           </div>
+          <% if @project.likes.where(user_id: current_user.id).length == 1 %>
+            <%= link_to like_path(@project.likes.where(user_id: current_user.id)[0], project_id: @project.id), method: :delete, class: 'save-heart' do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to project_likes_path(@project, page: 'show'), method: :post, class: 'save-heart' do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

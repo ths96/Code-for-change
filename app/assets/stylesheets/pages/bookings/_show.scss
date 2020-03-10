@@ -1,143 +1,164 @@
-.body-dashboard {
-background-color: white;
+.section-seperator {
+	padding: 100px 0px 100px 0px;
+	// background-color: whitesmoke;
+	// position: absolute;
+	// left: 0;
+	// right: 0;
 }
 
+.black-bg {
+	background-color: black;
+	color: white;
+	background-color: white;
+	color: black;
+	position: sticky;
+	top: 0;
+	border-bottom: 4px solid #ef6666;
+}
 .collabs-all {
 	display: flex;
-	align-items: center;
-	overflow: scroll;
+	justify-content: center;
+	padding-right: 25px;
+}
+
+.each-collab {
+	&:hover {
+		.collab-name {
+			opacity: 1;
+		}
+		.user-photo {
+			position: relative;
+			z-index: 1;
+		}
+	}
+}
+
+.collab-name {
+	background: black;
+	opacity: 0;
+	padding: 10px;
+	margin-bottom: 10px;
+	transition: opacity 0.1s ease;
+	p {
+		text-align: center;
+		color: white;
+		margin: 0;
+	}
 }
 .collab-profile {
-		background: rgb(255, 255, 255);
-    width: 200px;
-    height: 100px;
-		object-fit: contain;
-		margin: 20px;
-		display: flex;
-		align-items: center;
-		padding: 20px;
+	margin-right: -25px;
+	position: relative;
 
-		a {
-			color: grey;
-			padding: 3px;
-		}
-		.icon-profile-pic {
-			font-size: 50px;
-			color: grey;
-			padding: 10px;
-		}
+	.user-photo {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		border: 2px solid white;
+		cursor: pointer;
+		transition: all 300ms ease;
+	}
 }
 
+.booking-info {
+	display: flex;
+	width: 50%;
+	flex-direction: column;
+	justify-content: space-around;
+	padding-left: 10px;
 
-.icon-dashboard {
-    font-size: 35px;
-    padding: 10px;
-    top: 7px;
-    position: relative;
-    color: #cc5f5f;
+	.icon-dashboard {
+		font-size: 35px;
+		padding: 10px;
+		top: 7px;
+		position: relative;
+		color: black;
+	}
+
+	h5 {
+		font-size: 2rem;
+	}
+	h4 {
+		font-size: 3.5rem;
+	}
 }
-
-
 .your-project {
-padding: 120px 80px 50px;
-color: rgb(0, 0, 0);
-position: relative;
-top: -66px;
-
+	// padding: 20px;
+	border: 1px solid white;
+	box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
 
 	.img-dashboard {
-	position: absolute;
-	width: 190px;
-	height: 190px;
-	object-fit: cover;
-	border: 2px solid white;
-	left: 390px;
+		width: 50%;
+		height: 100%;
+		object-fit: cover;
 	}
+	.all-info-download {
+		display: flex;
+		flex-direction: row;
 
-	div {
-    display: inline-block;
-    position: relative;
-    top: 70px;
-    left: 510px;
-    background-color: white;
-    color: black;
-    /* border-radius: 5px; */
-    padding: 17px;
-	}
-
-	h4 {
-	font-size: 16px;
-	font-family: ‘Noto Sans’, sans-serif;
-	margin-bottom: 0px;
-	color: #D8D8D8;
-	}
-
-	h3 {
-		font-size: 46px;
-		font-family: ‘Fjalla One’, sans-serif;
+		.info-download {
+			width: 30%;
+		}
 	}
 }
 
-.dashboard-page {
-	padding: 35px 0px;
+.sm-table {
+	color: #3a4750;
+	margin-bottom: 50px;
+	padding-top: 80px;
+}
 
-	.tables {
-    display: grid;
-    grid-gap: 50px 100px;
-		.sm-table {
-			margin-bottom: 20px;
-			background-color: whitesmoke;
-			border: 1px solid rgb(230, 228, 228);
-			padding: 30px;
-			max-width: 60%;
-		}
-		.docs {
-			p {
-				display: inline-block;
-				width: 300px;
-				height: 50px;
-				padding: 5px;
-				color: rgb(168, 167, 167);
+.trello-updates {
+	font-family: inherit;
+	.lists {
+		display: flex;
+		.list {
+			margin: 2%;
+			width: 33.3%;
+			overflow: scroll;
+			height: 600px;
+			background-color: white;
+			border: 1px solid #ffffff;
+			box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+			&:first-of-type {
+				margin-left: 0;
 			}
-
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+		h5 {
+			font-size: 25px;
+			font-weight: bold;
+			top: -27px;
+			text-align: center;
+			padding: 20px;
+			// background-color: #fff;
+			margin-bottom: 0;
+		}
+		ul {
+			list-style-position: outside;
+		}
+		li {
+			font-size: 20px;
+			padding: 10px;
+			// text-align: center;
+			border-radius: 10px;
+			background-color: #fff;
+			border: 1px solid #ffffff;
+			// box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+			margin: 10px;
 		}
 
-
-		.trello-updates {
-			.lists {
-				display: flex;
-				.list {
-					padding: 25px;
-					margin: 20px;
-					background-color: #E6E6E6;
-					border-radius: 7px;
-					width: 340px;
-					overflow: scroll;
-   				height: 500px;
-				}
-				h5 {
-					font-family: ‘Fjalla One’, sans-serif;
-					font-size: 16px;
-					font-weight: bold;
-					padding-bottom: 10px;
-					position: sticky;
-					top: -27px;
-					background-color: #E6E6E6;
-					padding: 15px;
-					text-align: center;
-				}
-				.card-count {
-					background-color: red;
-				}
-
-			  p {
-					background-color: white;
-					padding: 15px;
-					margin-bottom: 20px;
-					list-style: circle;
-					border-radius: 7px;
-				}
-			}
+		.card-count {
+			background-color: #ef6666;
+			padding: 20px;
+			color: white;
+			border-radius: 50%;
+			height: 30px;
+			width: 30px;
 		}
 	}
 }
