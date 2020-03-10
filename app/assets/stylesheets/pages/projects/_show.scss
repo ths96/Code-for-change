@@ -1,18 +1,23 @@
+.banner-show {
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 300px;
+}
+
+
 .charity-name {
   width: fit-content;
   font-family: 'Oswald', sans-serif;
   text-align: center;
   text-transform: uppercase;
   padding: 20px;
-  background-color: white;
+  color: white;
   margin: 30px 0;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
-
-.project-photo {
-  width: 100%;
-  object-fit: cover;
-  height: 500px;
 }
 
 .tab {
@@ -29,7 +34,8 @@
 }
 
 .text-center {
-  height: 500px
+  height: 500px;
+  justify-content: center;
 }
 
 .card-text {
@@ -111,6 +117,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
 
 
 

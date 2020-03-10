@@ -1,58 +1,45 @@
-<!-- style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/434337/pexels-photo-434337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" -->
-
 <div class="banner-index" >
   <div class="banner-container">
-    <h1>Projects</h1>
-    <br>
+    <h1>PROJECTS</h1>
     <div class="container-form">
-      <%= form_tag projects_path, method: :get do %>
+      <%= form_tag projects_path, class: "search-form", method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find a project"
         %>
-        <%= submit_tag "Search", class: "btn btn-flat" %>
+        <button type="submit" class="btn">
+          <i class="fa fa-search"></i>
+        </button>
       <% end %>
-    </div>
+      </div>
   </div>
 </div>
 <div class="container search">
-
-
-<!-- <div id="myBtnContainer">
-  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-  <button class="btn" onclick="filterSelection('Front-End')"> Cars</button>
-  <button class="btn" onclick="filterSelection('Back-End')"> Animals</button>
-  <button class="btn" onclick="filterSelection('Full-Stack')"> Fruits</button>
-</div> -->
-
-<!-- <input type="checkbox" class="tablefilter" name="class1" id="class1" checked />
-<label for="class1">Filter 1</label>
-<input type="checkbox" class="tablefilter" name="class2" id="class2" checked />
-<label for="class2">Filter 2</label>
-<input type="checkbox" class="tablefilter" name="class3" id="class3" checked />
-<label for="class3">Filter 3</label> -->
-
   <div class="container">
-    <ul class="list-group">
+    <div class="cards">
       <% @projects.each do |project| %>
-<!--         <li class="list-group-item"> -->
-          <%#= link_to project_path(project), class: 'card-link' do %>
-            <div class="card-product" >
-              <% if project.photo.attached? %>
-                <%= cl_image_tag project.photo.key %>
-              <% end %>
-              <div class="card-product-infos">
-                <h2><%= project.name %></h2>
-                <p>Category: <%=project.category %></p>
-                <p>Location: <%= project.location %></p>
-                <p>Project description: <%= project.project_description %> </p>
-              </div>
-              <%= link_to "Learn More", project_path(project), class: "btn btn-flat" %>
+        <div class="card-product">
+          <div class="overlay-fade">
+            <% if project.photo.attached? %>
+              <%= cl_image_tag project.photo.key, class: 'first-charity-photo' %>
+                <div class="index-text" style="">
+                  <%= link_to 'Learn More', project_path(project) %>
+                 </div>
+            <% end %>
+          </div>
+          <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
+            <div class="card-product-infos project-card">
+              <h2><%= project.name %></h2>
+              <p>Category: <%=project.category %></p>
+              <p>Location: <%= project.location %></p>
+              <p>Project description: <%= project.project_description.truncate(120) %> </p>
             </div>
-          <%# end %>
-        <!-- </li> -->
+            <%= link_to "Learn More", project_path(project), class: "btn btn-flat-index" %>
+          </div>
+        </div>
       <% end %>
+    </div>
   </div>
   <%= link_to "Back to Home", root_path, class: "btn btn-flat" %>
 </div>

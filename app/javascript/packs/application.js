@@ -4,6 +4,10 @@ require("turbolinks").start();
 require("channels");
 
 import "bootstrap";
+import { initAutocomplete } from '../plugins/init_autcomplete';
+import { initMapbox } from '../plugins/init_mapbox';
+import Typewriter from 'typewriter-effect/dist/core';
+
 
 document.addEventListener('turbolinks:load', () => {
   const tabs = document.querySelectorAll('.tab');
@@ -18,20 +22,7 @@ document.addEventListener('turbolinks:load', () => {
       });
     });
   });
-});
-
-import { initMapbox } from '../plugins/init_mapbox';
-
-document.addEventListener('turbolinks:load', () => {
   initMapbox();
-})
-
-
-import Typewriter from 'typewriter-effect/dist/core';
-
-document.addEventListener('turbolinks:load', () => {
-  // this breaks it
-  // initAutocomplete();
   const target = document.getElementById('banner-description')
 
   if (target) {
@@ -44,4 +35,9 @@ document.addEventListener('turbolinks:load', () => {
       // .deleteAll()
       .start()
   }
-})
+  initAutocomplete()
+});
+
+
+
+

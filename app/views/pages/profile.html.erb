@@ -1,30 +1,46 @@
 <div class="d-flex align-items-end" style="margin: 50px">
-  <div class = "user-info">
+  <div class="user-info">
     <div>
-      <div class= "user-name">
+      <div class="user-name"style="font-family: 'Oswald', sans-serif;">
       <%= current_user.name %>
       </div>
       <br>
-      <div class = "user-bio">
+      <div class="user-bio">
        <%= current_user.bio %>
       </div>
-      <br>
-      <div class ="linkedin-url">
-       <p><%= link_to "LinkedIn", current_user.linkedin_url, target: '_blank' %></p>
-       </div>
-       <br>
+    </div>
+
+
+    <div class="profile-img">
+       <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: 'user-photo' %>
+      <% end %>
+        <br>
        <div class="user-location">
        <%= current_user.location %>
+       </div>
+
+       <div class="d-flex">
+       <div class="linkedin-url">
+          <%= link_to current_user.linkedin_url, target: '_blank' do %>
+            <i class="fab fa-linkedin"></i>
+          <% end %>
+         </div>
+        <div class="github-url">
+          <%= link_to current_user.github_url, target: '_blank' do %>
+            <i class="fab fa-github"></i>
+          <% end %>
+        </div>
       </div>
     </div>
-    <%= cl_image_tag @user.photo.key, class: 'user-photo' %>
+
   </div>
   <%= link_to "Search for a Project", projects_path, class: "btn btn-flat charity-show-button" %>
 </div>
 
-<h2 class="h2-projects"> My projects </h2>
-
-<div class ="your-projects">
+<!-- <h2 class="h2-projects"> MY PROJECTS </h2> -->
+<p style="font-family: 'Oswald'; font-size: 50px; text-align: center;">MY PROJECTS</p>
+<div class="your-projects">
 <table class="table">
   <thead>
     <tr>
@@ -33,16 +49,18 @@
       <th scope="col">LOCATION</th>
       <th scope="col">STATUS</th>
       <th scope="col">DEADLINE</th>
+      <th scope="col">FINISHED?</th>
     </tr>
   </thead>
   <tbody>
     <% current_user.bookings.each do |booking| %>
         <tr>
-          <td><%= link_to booking.project.name, booking_path(booking) %></td>
+          <td><%= link_to booking.project.name || booking.project.charity.name, booking_path(booking),class: "btn btn-dark btn-block"  %></td>
           <td><%= booking.project.charity.name %></td>
           <td><%= booking.project.location %></td>
           <td><%= booking.status %></td>
           <td><%= booking.project.deadline %></td>
+          <td><%= link_to 'Delete Project', booking_path(booking), method: :delete, class: "btn btn-light" %></td>
         </tr>
     <% end %>
   </tbody>

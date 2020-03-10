@@ -1,9 +1,18 @@
 .banner-index {
   .form-control {
-    margin-top: 20px;
+    margin: 20px;
     width: 500px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.search-form {
+  display: inline-flex;
+  margin: auto;
+}
+
+.container-form {
+  margin-top: -20px;
 }

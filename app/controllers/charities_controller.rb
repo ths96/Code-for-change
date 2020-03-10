@@ -35,11 +35,10 @@ class CharitiesController < ApplicationController
   private
 
   def charity_params
-    params.require(:charity).permit(:name, :description, :location)
+    params.require(:charity).permit(:name, :description, :location, :photo, :deadline)
   end
-   def find_charity
+
+  def find_charity
     @charity = Charity.find(params[:id])
   end
-
-
 end

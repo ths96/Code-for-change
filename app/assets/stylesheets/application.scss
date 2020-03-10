@@ -1,4 +1,4 @@
- * {
+* {
   font-family: 'Oswald', sans-serif;
 }
 
@@ -16,4 +16,6 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/registrations/index";
 @import "pages/projects/new";
+

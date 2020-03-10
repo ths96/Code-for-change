@@ -1,11 +1,4 @@
 
-body{
-
-  background-color: #ffffff;
-}
-
-
-
 //sign up
 .session-grid {
   display: grid;
@@ -41,21 +34,24 @@ body{
 }
 
 
+
 //text styling
 .text-top {
-  margin: 40px 0;
-  padding-bottom: 20px;
-}
-
-
-.text-notleft {
   margin: 10px;
-
+  padding-bottom: 40px;
+  padding-top: 50px;
 }
 
 
-.text-left {
- margin: 10px;
+.text1 {
+  margin: 10px;
+  padding-bottom: 40px;
+}
+
+
+.text2 {
+  margin: 10px;
+  padding-bottom: 40px;
 
 }
 
@@ -67,6 +63,7 @@ body{
 .p-signin {
   font-size: 28px;
   font-weight: bold;
+  color: #F17171;
 
 
 }
@@ -104,12 +101,13 @@ body{
   text-align: center;
   font-size: 50px;
   font-family: ‘Oswald’, sans-serif;
+
 }
 
 .h2-projects {
   text-align: center;
   font-size: 50px;
-  font-family: ‘Oswald’, sans-serif;
+  font-family: ‘Oswald’, sans-serif !important;
   margin-bottom: 20px;
 }
 
@@ -120,57 +118,5 @@ body{
 }
 
 
-
-
-//profile page for coder
-
-.user-info {
-  padding: 20px;
-  width: 600px;
-  border: 1px solid rgb(209, 208, 208);
-  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
-  display: flex;
-  justify-content: space-between;
-
-}
-
-.user-name {
-  font-size: 34px;
-  font-family: ‘Oswald’, sans-serif;
-}
-
-.user-bio {
-  width: 80%;
-  font-family: ‘Oswald’, sans-serif;
-}
-
-.user-photo {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.user-location {
-  font-size: 38px;
-
-}
-
-.card-category {
-  margin: 15px;
-}
-
-
-.your-projects {
-  background-color: rgb(244,244,244);
-  padding: 20px;
-  margin: 50px;
-  border: 1px solid rgb(209, 208, 208);
-  color: rgb(58,71,80);
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
-
-
-}
 
 
