@@ -62,3 +62,36 @@
   </tbody>
 </table>
 </div>
+
+<!-- <h2 class="h2-projects"> MY SAVED PROJECTS </h2> -->
+<p style="font-family: 'Oswald'; font-size: 50px; text-align: center;">MY SAVED PROJECTS</p>
+<div class ="your-saved-projects">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">PROJECT</th>
+      <th scope="col">CHARITY</th>
+      <th scope="col">LOCATION</th>
+      <th scope="col">DEADLINE</th>
+      <th scope="col">UNSAVE?</th>
+      <th scope="col">JOIN?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.likes.each do |like| %>
+        <tr>
+          <td><%= link_to like.project.name, like_path(like),class: "btn btn-dark"  %></td>
+          <td><%= like.project.charity.name %></td>
+          <td><%= like.project.location %></td>
+          <td><%= like.project.deadline %></td>
+          <td>
+             <%= link_to like_path(like, page: 'profile'), method: :delete do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+          </td>
+          <td><%= link_to "I'm In!", project_bookings_path(like.project, page: 'profile'), method: :post %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -14,12 +14,14 @@ document.addEventListener('turbolinks:load', () => {
   const tabContents = document.querySelectorAll('.tab-pane');
   tabs.forEach((tab) => {
     tab.addEventListener('click', (event) => {
-      tabs.forEach(tab => tab.classList.remove('active'));
-      event.currentTarget.classList.add('active');
-      tabContents.forEach((content) => {
-        content.classList.toggle('d-none');
-        content.classList.toggle('active');
-      });
+      if (!event.currentTarget.classList.contains('active')) {
+        tabs.forEach(tab => tab.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+          tabContents.forEach((content) => {
+            content.classList.toggle('d-none');
+            content.classList.toggle('active');
+          });
+      }
     });
   });
   initMapbox();

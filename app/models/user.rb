@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_one :charity, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :projects, through: :bookings
+  has_many :likes, dependent: :destroy
 end
