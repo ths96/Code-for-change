@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  resources :bookings, only: [:index, :show] do
+  resources :bookings, only: [:index, :show, :destroy] do
     member do
       patch :accept
     end
@@ -14,10 +14,10 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
-  
+
   resources :projects
   resources :charities
 
   get "profile", to: "pages#profile"
-  
+
 end

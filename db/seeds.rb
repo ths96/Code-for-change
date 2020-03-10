@@ -7,6 +7,8 @@ require "open-uri"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Project.destroy_all
+Charity.destroy_all
 User.destroy_all
 
 user1 = User.create!(email: 'tom@gmail.com', password: 'test1234')
@@ -14,6 +16,7 @@ charity1 = Charity.create!(name: 'Save the Turtles', description:'A conservation
 turtles = Project.create!(name: 'Save the Turtles', category: 'Front-end', charity_description: 'A conservation charity working to protect turtle nesting beaches, fund turtle rescue and rehabilitation and combat threats of pollution and turtle hunting. We want to conserve sea turtles by protecting their nesting beaches, halting both the targeted and accidental catch of turtles and supporting rescue centres around the world that return rehabilitated sea turtles to the wild.', website: 'www.savetheturtles.org', location: 'Tulum, Mexico', project_description: 'Save the turtles is looking for a dedicated group of web delveopers to help us implement a payment funtion on our existing website. This will be instrumental in allowing us raise more money to support our cause.', deadline: '10/05/2020', charity: charity1)
 url_turtle = "https://images.unsplash.com/photo-1518467166778-b88f373ffec7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
 turtles.photo.attach(io: open(url_turtle), filename: 'turtle_1')
+charity1.photo.attach(io: open(url_turtle), filename: 'turtle_1')
 Booking.create(user: user1, project: turtles, status: 'accepted')
 
 user2 = User.create!(email: 'iram@gmail.com', password: 'test1234')
@@ -21,21 +24,27 @@ charity2 = Charity.create!(name: 'Life of Giving', description:'Giving help to t
 giving = Project.create!(name: 'Life of Giving', category: 'Full-stack', charity_description: 'Povery is a injustice against humanity. It robs people of their basis fundamental needs and creates a vunerability amoungst the masses. But together we have the power to transform lives. For 37 years Life of Giving has worked with the most marginalized citizens of society helping break the cycle of poverty', website: 'www.lifeofgiving.org', location: 'London, UK', project_description: 'We need a full website rebuild, this will include a home page, a page to brose our projects, a donation page, a fully-responsive footer and header with links to articles etc.', deadline: '13/07/2020', charity: charity2)
 url_giving = "https://ssir.org/images/blog/barbara-amedeo-fundraising-holidays-tips592x333.jpg"
 giving.photo.attach(io: open(url_giving), filename: 'giving_1')
+charity2.photo.attach(io: open(url_giving), filename: 'giving_1')
 Booking.create(user: user2, project: turtles, status: 'accepted')
+
 
 user3 = User.create!(email: 'taylor@gmail.com', password: 'test1234')
 charity3 = Charity.create!(name: 'Justice League', description:'Fighting women injustice', location: 'New York, USA', user: user3)
 justice = Project.create!(name: 'Justice for Women', category: 'Back-end', charity_description: 'Over a quarter of a million women die each year from largely preventable causes related to pregnancy and childbirth. On average, greater numbers of women and girls die during and after natural disasters than men, and in situations of conflict or political unrest they are extremely vulnerable to sexual violence. Help Justice for women empower both women and girls', website: 'www.justiceleague.org', location: 'New York, USA', project_description: 'Our website crashes when we add new cases, need a group of coders to help sort this bug out', deadline: '01/04/2020', charity: charity3)
 url_justice = "https://images.theconversation.com/files/174760/original/file-20170620-32329-qvf3j6.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
 justice.photo.attach(io: open(url_justice), filename: 'justice_1')
+charity3.photo.attach(io: open(url_justice), filename: 'justice_1')
 Booking.create(user: user3, project: turtles, status: 'accepted')
+
 
 user4 = User.create!(email: 'kathryn@gmail.com', password: 'test1234')
 charity4 = Charity.create!(name: 'Tree Planter', description:'Planting Trees everywhere', location: 'Manaus, Brazil', user: user4)
 trees = Project.create!(name: 'Tree Planter', category: 'Full-stack', charity_description: 'Here at tree planter we are trying to combat the effects of globale warming by planting more trees. We get stuck in with local communities to cultivate lasting change in their neighbourhoods – whether it’s revitalising forgotten spaces, creating healthier environments or getting people excited about growing, foraging and eating healthy food.', website: 'www.treeplanter.org', location: 'Manaus, Brazil', project_description: 'We would like to implement a map feature to keep track of our planting', deadline: '04/05/2020', charity: charity4)
 url_trees = "https://ichef.bbci.co.uk/wwfeatures/live/976_549/images/live/p0/7n/19/p07n19vr.jpg"
 trees.photo.attach(io: open(url_trees), filename: 'trees_1')
+charity4.photo.attach(io: open(url_trees), filename: 'trees_1')
 Booking.create(user: user4, project: turtles, status: 'accepted')
+
 
 user5 = User.create!(email: 'plastic@gmail.com', password: 'test1234')
 charity5 = Charity.create!(name: 'Reduce All Plastic', description:'Promoting the use of less plastic', location: 'Berlin, Germany', user: user5)

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def create
-    @booking = Booking.new(project_id: params[:project_id], user_id: current_user.id, status: 'pending')
+    @booking = Booking.new(project_id: params[:project_id], user_id: current_user.id, status: 'Pending')
     @booking.save
     redirect_to profile_path
 	end
@@ -16,22 +16,27 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.update(status: 'accepted')
+    @booking.update(status: 'Accepted')
     redirect_to charity_path(@booking.project.charity)
   end
 
   def reject
     @booking = Booking.find(params[:id])
-    @booking.update(status: 'rejected')
+    @booking.update(status: 'Rejected')
     redirect_to charity_path(@booking.project.charity)
   end
 
+    def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to profile_path
+  end
 	private
 
   def trello_dashboard(project)
     if project.trello_token.present?
       url = "https://api.trello.com/1/members/me/boards?&key=#{ENV['TRELLO_API_KEY']}&token=#{project.trello_token}"
-			
+
       boards = use_api(url)
 
       boards.map! do |board|

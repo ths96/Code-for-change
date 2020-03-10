@@ -1,22 +1,25 @@
 
 <div class ="session-grid2">
   <!-- LEFT SIDE -->
-  <div class="session-grid-text">
+ <div class="session-grid-text">
     <% if params[:coder] == 'true' %>
+
       <div class = "text-top">
         <p class="p-signin"> Why Join Code for Change?</p>
         <p>Code for Change was made by developers, for developers. Whether you’re a new developer looking to harness your skills, or a professional developer looking to engage in a philanthropic pursuit, Code for Change accommodates to all. </p>
       </div>
-      <div class="d-flex">
-        <div class = text-left>
+
+        <div class ="text">
           <p class="p-signin"> For New developers:</p>
           <p>Mastering a new skill can be hard, but with enough practise and persistence there is a lot you can achieve. When applying for web development jobs your portfolio is the best point of reference for future employers to see what you can produce. However, as a new developer, it is often difficult to find opportunities to produce practical products. Code For Change solves this by providing developers with an opportunity to harness their skills and build a portfolio all while making a significant difference.  </p>
         </div>
-        <div class ="text-notleft">
+
+        <div class ="text2">
           <p class="p-signin"> For Professional developers:</p>
           <p>While donating to charity is a great way to engage in philanthropy, dedicating your time and utilizing your skills is a creative way to contribute to the greater good. Additionally, with Code For Change you aren’t left wondering what your contribution has been used for. Once you submit your project you can be assured that your time has created a tangible impact. Join Code For Change today to join a group of dedicated, like-minded individuals, and start making a difference now.   </p>
         </div>
-      </div>
+
+
 
     <% else %>
       <div class ="text-charity">
@@ -25,6 +28,7 @@
       </div>
     <% end %>
   </div>
+
 
 
   <!-- RIGHT SIDE -->
@@ -49,16 +53,20 @@
           <%= f.input :name %>
           <%= f.input :photo, as: :file %>
           <%= f.input :bio, placeholder:"Tell us about yourself..." %>
-          <%= f.input :location %>
+          <%= f.input :location, input_html: {class:"location_input"} %>
           <%= f.input :linkedin_url %>
+          <%= f.input :github_url, label:'Github url' %>
+
           <%= f.input :coder, as: :hidden, input_html: {value: true} %>
         </div>
-
-        <div class= "form-actions">
+           <div class= "form-actions">
           <%= f.button :submit, "Sign up", class: "btn btn-flat" %>
         </div>
       <% else %>
 
+
+    <!-- Form for charity -->
+        <div class ="form-container">
         <h2 class="h2-signup">Sign up as a Charity</h2>
         <div class="form-inputs">
           <%= f.input :email,
@@ -77,9 +85,9 @@
 
         <div class= "form-actions">
           <%= f.button :submit, "Sign up", class: "btn btn-flat" %>
-
         </div>
       <% end %>
-    <% end %>
+     <% end %>
+
   </div>
 </div>
