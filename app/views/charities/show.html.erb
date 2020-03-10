@@ -1,17 +1,15 @@
 
-<div class="banner-charity" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1462143338528-eca9936a4d09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
+<div class="banner-charity" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @charity.photo.key %>);">
 <div class="charity-header">
   <div class="your-charity-details">
     <h1 class ="welcome" style="font-family: 'Oswald', sans-serif;">Welcome.. <%= @charity.name %></h1>
     <br>
     <h4 class ="how" style="font-family: 'Oswald', sans-serif;">How is <%= @charity.location %> today?</h4>
-    <% if @charity.photo.attached? %>
-      <%= cl_image_tag @charity.photo.key, class: 'charity-photo' %>
-    <% end %>
+
+
   </div>
   <%= link_to "Register a Project", new_project_path, class: "btn btn-flat charity-show-button" %>
 </div>
-
 </div>
 
 
@@ -19,7 +17,7 @@
 
 
 <div class="your-charity-applications design-table">
-  <h2>Applications</h2>
+  <h2 style="font-family: 'Oswald', sans-serif;">Applications</h2>
   <table class="table">
     <thead>
       <tr>
@@ -54,7 +52,7 @@
 
 
 <div class="your-charity-projects">
-  <h2>Running Projects</h2>
+  <h2 style="font-family: 'Oswald', sans-serif";>Running Projects</h2>
     <table class="table">
       <thead>
         <tr>
@@ -67,7 +65,7 @@
       <tbody>
         <% @charity.projects.each do |project| %>
           <tr>
-            <td><%= link_to project.name || @charity.name, project_path(project),class: "btn btn-dark"  %></td>
+            <td><%= link_to project.name || @charity.name, project_path(project),class: "btn btn-dark btn-block"  %></td>
             <td><%= project.category %></td>
             <td><%= project.deadline %></td>
             <td><%= link_to 'Archive Project', project_path(project), method: :delete, class: "btn btn-light " %></td>
