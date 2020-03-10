@@ -4,12 +4,12 @@ body {
 
   background: #ffffff;
 
-
 }
 
 .user-info {
   padding: 20px;
-  width: 600px;
+  max-width: 600px;
+  max-height: 430px;
   border: 1px solid rgb(209, 208, 208);
   box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
   display: flex;
@@ -19,11 +19,11 @@ body {
 
 .user-name {
   font-size: 34px;
-  font-family: ‘Oswald’, sans-serif;
+
 }
 
 .user-bio {
-  width: 80%;
+  width: 90%;
   font-family: ‘Oswald’, sans-serif;
 }
 
@@ -36,7 +36,8 @@ body {
 }
 
 .user-location {
-  font-size: 38px;
+  font-size: 16px;
+  margin-top: 10px;
 
 }
 
