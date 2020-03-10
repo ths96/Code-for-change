@@ -23,6 +23,7 @@
 .tab {
   border-bottom: 1px solid #cccccc;
   padding: 8px 16px;
+  cursor: pointer;
   &.active {
     border-top: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
@@ -118,6 +119,14 @@
   justify-content: space-between;
 }
 
-
+.save-heart {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: red;
+  &:hover {
+    color: black;
+  }
+}
 
 

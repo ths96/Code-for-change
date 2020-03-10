@@ -31,6 +31,15 @@
           <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
             <div class="card-product-infos project-card">
               <h2><%= project.name %></h2>
+              <% if project.likes.where(user_id: current_user.id).length == 1 %>
+                <%= link_to like_path(project.likes.where(user_id: current_user.id)[0]), method: :delete, class: "save-heart-index" do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to  project_likes_path(project), method: :post, class: "save-heart-index" do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
               <p>Category: <%=project.category %></p>
               <p>Location: <%= project.location %></p>
               <p>Project description: <%= project.project_description.truncate(120) %> </p>
