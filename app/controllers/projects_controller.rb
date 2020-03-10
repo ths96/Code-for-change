@@ -15,6 +15,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @markers = [{
+      lat: @project.latitude,
+      lng: @project.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { project: @project }),
+      image_url: @project.photo.service_url
+    }]
   end
 
   def new
