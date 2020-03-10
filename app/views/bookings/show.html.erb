@@ -21,57 +21,56 @@
 		</div>
 	</div>
 
-	<div class="dashboard-page">
-		<div class="tables">
-
-			<% unless @boards.nil? %>
-				<div class="sm-table trello-updates">
-					<h3>TRELLO UPDATES</h3>
-					<div class="lists">
-						<% @boards.each do |list| %>
-						<div class="list">
-						<div class="d-flex align-items-center justify-content-center black-bg">
-							<h5><%= list["name"].upcase %></h5>
-							<div class="card-count d-flex align-items-center justify-content-center"><%= list["cards"].length %></div>
-						</div>
-						<ul>
-							<% list["cards"].each do |entry|  %>
-								<li><%= entry["name"] %></li>
-							<% end %>
-						</ul>
-						</div>
-							<% end %>
+	<div class="section-seperator">
+		<% unless @boards.nil? %>
+			<div class="sm-table trello-updates">
+				<h3>TRELLO UPDATES</h3>
+				<div class="lists">
+					<% @boards.each do |list| %>
+					<div class="list">
+					<div class="d-flex align-items-center justify-content-center black-bg">
+						<h5><%= list["name"].upcase %></h5>
+						<div class="card-count d-flex align-items-center justify-content-center"><%= list["cards"].length %></div>
 					</div>
+					<ul>
+						<% list["cards"].each do |entry|  %>
+							<li><%= entry["name"] %></li>
+						<% end %>
+					</ul>
+					</div>
+						<% end %>
 				</div>
-			<% end %>
+			</div>
+		<% end %>
+	</end>
 
-
-			<div class="sm-table collabs">
-				<h3>COLLABORATORS</h3>
-				<div class="collabs-all">
-						<% @collaborators.each do |collaborator| %>
-							<div class="each-collab">
-								<div class="collab-name">
-									<p><%= collaborator.name %></p>
-								</div>
-								<div class="collab-profile">
-									<% if collaborator.photo.attached? %>
-										<%= link_to collaborator.linkedin_url, target: '_blank' do %>
-											<%= cl_image_tag collaborator.photo.key, class: 'user-photo round-avatar' %>
-										<% end %>
-									<% else %>
-										<%= link_to collaborator.linkedin_url, target: '_blank' do %>
-											<%= image_tag 'default-avatar.jpg', class: 'user-photo round-avatar' %>
-										<% end %>
+	<div class="section-seperator">
+		<div class="sm-table collabs">
+			<h3>COLLABORATORS</h3>
+			<div class="collabs-all">
+					<% @collaborators.each do |collaborator| %>
+						<div class="each-collab">
+							<div class="collab-name">
+								<p><%= collaborator.name %></p>
+							</div>
+							<div class="collab-profile">
+								<% if collaborator.photo.attached? %>
+									<%= link_to collaborator.linkedin_url, target: '_blank' do %>
+										<%= cl_image_tag collaborator.photo.key, class: 'user-photo round-avatar' %>
 									<% end %>
-									<div class="collab-info">
-										<h5><%= collaborator.name %></h5>
-										<p><%= link_to "LinkedIn", current_user.linkedin_url, target: '_blank' %></p>
-									</div>
+								<% else %>
+									<%= link_to collaborator.linkedin_url, target: '_blank' do %>
+										<%= image_tag 'default-avatar.jpg', class: 'user-photo round-avatar' %>
+									<% end %>
+								<% end %>
+								<div class="collab-info">
+									<h5><%= collaborator.name %></h5>
+									<p><%= link_to "LinkedIn", current_user.linkedin_url, target: '_blank' %></p>
 								</div>
 							</div>
-						<% end %>
-					</div>
+						</div>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,3 +1,11 @@
+.section-seperator {
+	padding: 100px 0px 100px 0px;
+	// background-color: whitesmoke;
+	// position: absolute;
+	// left: 0;
+	// right: 0;
+}
+
 .black-bg {
 	background-color: black;
 	color: white;
@@ -96,65 +104,61 @@
 	}
 }
 
-.dashboard-page {
-	.tables {
-		.sm-table {
-			color: #3a4750;
-			margin-bottom: 50px;
-			padding-top: 80px;
+.sm-table {
+	color: #3a4750;
+	margin-bottom: 50px;
+	padding-top: 80px;
+}
+
+.trello-updates {
+	font-family: inherit;
+	.lists {
+		display: flex;
+		.list {
+			margin: 2%;
+			width: 33.3%;
+			overflow: scroll;
+			height: 600px;
+			background-color: white;
+			border: 1px solid #ffffff;
+			box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+			&:first-of-type {
+				margin-left: 0;
+			}
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+		h5 {
+			font-size: 25px;
+			font-weight: bold;
+			top: -27px;
+			text-align: center;
+			padding: 20px;
+			// background-color: #fff;
+			margin-bottom: 0;
+		}
+		ul {
+			list-style-position: outside;
+		}
+		li {
+			font-size: 20px;
+			padding: 10px;
+			// text-align: center;
+			border-radius: 10px;
+			background-color: #fff;
+			border: 1px solid #ffffff;
+			// box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+			margin: 10px;
 		}
 
-		.trello-updates {
-			font-family: inherit;
-			.lists {
-				display: flex;
-				.list {
-					margin: 2%;
-					width: 33.3%;
-					overflow: scroll;
-					height: 600px;
-					background-color: white;
-					border: 1px solid #ffffff;
-					box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-					&:first-of-type {
-						margin-left: 0;
-					}
-					&:last-of-type {
-						margin-right: 0;
-					}
-				}
-				h5 {
-					font-size: 25px;
-					font-weight: bold;
-					top: -27px;
-					text-align: center;
-					padding: 20px;
-					// background-color: #fff;
-					margin-bottom: 0;
-				}
-				ul {
-					list-style-position: outside;
-				}
-				li {
-					font-size: 20px;
-					padding: 10px;
-					// text-align: center;
-					border-radius: 10px;
-					background-color: #fff;
-					border: 1px solid #ffffff;
-					// box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-					margin: 10px;
-				}
-
-				.card-count {
-					background-color: #ef6666;
-					padding: 20px;
-					color: white;
-					border-radius: 50%;
-					height: 30px;
-					width: 30px;
-				}
-			}
+		.card-count {
+			background-color: #ef6666;
+			padding: 20px;
+			color: white;
+			border-radius: 50%;
+			height: 30px;
+			width: 30px;
 		}
 	}
 }
