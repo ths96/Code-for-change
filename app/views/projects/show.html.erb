@@ -2,39 +2,38 @@
   <h1 class="charity-name"><%=@project.name%></h1>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-7">
-        <div class="card text-center">
-          <div class="card-header tab-header d-flex align-items-center justify-content-start">
-            <span class="tab active" role="tab" aria-controls="project-description" aria-selected="true">Project Information</span>
-            <span class="tab" role="tab" aria-controls="charity-description" aria-selected="false">Charity Information</span>
-          </div>
-           <div class="card-body">
-            <div class="tab-content mt-3">
-              <div class="tab-pane active" id="project-description" role="tabpanel">
-                <p class="card-text"><%= @project.project_description %></p>
-                <div class="project-card-overview">
-                  <h4 class="overview">Key Information:</h4>
-                  <p class="card-inform"><i class="far fa-calendar-alt">  <%= @project.deadline %></i></p>
-                  <p class="card-inform"><i class="fas fa-laptop-code">  <%= @project.category %></i></p>
-                  <button type="button" class="btn-request" ><%= link_to "I'm In!", project_bookings_path(@project, page: 'show'), method: :post %></button>
-                </div>
+      <div class="card text-center show-card">
+        <div class="card-header tab-header d-flex align-items-center justify-content-start">
+          <span class="tab active show-tab" role="tab" aria-controls="project-description" aria-selected="true">Project Information</span>
+          <span class="tab show-tab" role="tab" aria-controls="charity-description" aria-selected="false">Charity Information</span>
+        </div>
+         <div class="card-body">
+          <div class="tab-content mt-3">
+            <div class="tab-pane active" id="project-description" role="tabpanel">
+              <p class="card-text"><%= @project.project_description %></p>
+              <div class="project-card-overview">
+                <p class="card-inform">Deadline:  <%= @project.deadline %></i></p>
+                <p class="card-inform">Project Type: <%= @project.category %></i></p>
+                <%= link_to project_bookings_path(@project, page: 'show'), method: :post do %>
+                  <button type="button" class="btn-request" >I'm In!</button>
+                <% end %>
               </div>
             </div>
-            <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
-              <p class="card-text"><%= @project.charity_description %></p>
-              <p class="charity-link">For more information, please visit: <%= @project.website %></p>
-            </div>
           </div>
-          <% if @project.likes.where(user_id: current_user.id).length == 1 %>
-            <%= link_to like_path(@project.likes.where(user_id: current_user.id)[0], project_id: @project.id), method: :delete, class: 'save-heart' do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-          <% else %>
-            <%= link_to project_likes_path(@project, page: 'show'), method: :post, class: 'save-heart' do %>
-              <i class="far fa-heart"></i>
-            <% end %>
-          <% end %>
+          <div class="tab-pane d-none" id="charity-desc" role="tabpanel" aria-labelledby="chrarity-description-tab">
+            <p class="card-text"><%= @project.charity_description %></p>
+            <p class="charity-link">For more information, please visit: <%= @project.website %></p>
+          </div>
         </div>
+        <% if @project.likes.where(user_id: current_user.id).length == 1 %>
+          <%= link_to like_path(@project.likes.where(user_id: current_user.id)[0], project_id: @project.id), method: :delete, class: 'save-heart' do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to project_likes_path(@project, page: 'show'), method: :post, class: 'save-heart' do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

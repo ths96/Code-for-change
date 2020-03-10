@@ -4,7 +4,6 @@
 </div>
 
 <div class="container">
-  <h4 class="instruction">Please fill out the fields below: </h4>
   <div class="project-form project-new">
      <%= simple_form_for [@charity, @project] do |f| %>
        <%= f.input :category, :collection => %w[Front-end Back-end Full-stack], label: 'Enter the type of project you want completed' %>

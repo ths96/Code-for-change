@@ -10,14 +10,13 @@
 
 
 .charity-name {
-  width: fit-content;
   font-family: 'Oswald', sans-serif;
   text-align: center;
   text-transform: uppercase;
   padding: 20px;
   color: white;
   margin: 30px 0;
-  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  font-size: 60px;
 }
 
 .tab {
@@ -47,7 +46,7 @@
   text-align: left;
 }
 .tab-header {
-  padding: 1rem 0 0 0 !important;
+  padding: 0 0 0 0 !important;
 }
 
 .project-card-overview {
@@ -64,8 +63,11 @@
 
 .important-info {
   padding-top: 20px;
+  margin-bottom: 30px;
   text-align: center;
   font-family: 'Oswald', sans-serif;
+  text-decoration: underline;
+  text-decoration-color: #EF6666;
   h1 {
     font-size: 32px;
   }
@@ -77,6 +79,7 @@
 
 #map {
   justify-content: center;
+  border-radius: 5px !important;
 }
 
 .card-important-info {
@@ -85,7 +88,7 @@
   margin-bottom: 0px;
   overflow: scroll;
   line-height: 1.8;
-
+  border-radius: 5px !important;
 }
 
 .card-important-info h2 {
@@ -99,6 +102,7 @@
 .btn-request{
   width: 100%;
   padding: 8px 24px;
+  color: white;
   border-radius: 4px;
   background: black;
   transition: background 0.3s ease;
@@ -127,6 +131,36 @@
   &:hover {
     color: black;
   }
+}
+
+.show-card {
+  width: 800px;
+  border-radius: 5px !important;
+  border: none !important;
+  box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+}
+
+.show-tab {
+  width: 50%;
+}
+
+.banner-show .card-header .tab {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.banner-show .card-header .active {
+  background-color: #EF6666;
+  border-top: 1px solid #EF6666 !important;
+  color: white !important;
+}
+
+.card-header {
+  border: none !important;
+}
+
+.center-text {
+  text-align: center;
 }
 
 
