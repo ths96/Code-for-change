@@ -1,73 +1,253 @@
-// Specific CSS for your home-page
-.home-title {
-  color: black;
-}
+.home-page {
+	.clearfix {
+		zoom: 1;
+	}
+	clearfix:after {
+		content: '.';
+		clear: both;
+		display: block;
+		height: 0;
+		visibility: hidden;
+	}
 
-.home-title-box{
-  background-color: white;
-  padding: 10px;
-  width: fit-content;
-}
+	h2 {
+		text-transform: uppercase;
+		font-size: 46px;
+		word-spacing: 2px;
+		text-align: center;
+		margin-bottom: 30px;
+		letter-spacing: 1px;
+	}
 
-.banner-d {
-  color: white;
-}
+	h2:after {
+		display: block;
+		height: 2px;
+		background-color: #ef6666;
+		content: ' ';
+		width: 200px;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
 
-.btn-home {
-  color: white;
-  font-size: 20px;
-  margin: 10px 0px;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: #0A0908;
-  transition: background 0.3s ease;
-}
+	h3 {
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 110%;
+		margin-bottom: 15%;
+		text-align: center;
+	}
 
-.btn-home:hover {
-  background: #8B8C89;
-  color: white;
-}
+	.landing-page {
+		// background-color: #ef6666;
+		background-image: url('/assets/19.jpg');
+		// background: linear-gradient(
+  //     rgba(0, 0, 0, 0.5),
+  //     rgba(0, 0, 0, 0.5)
+		// );
+		background-size: cover;
+		background-position: center;
+		height: 100vh;
+		background-attachment: fixed;
+		.title-landing {
+			font-weight: bold;
+			font-size: 5rem;
+			font-family: 'Oswald', sans-serif;
+			text-transform: uppercase;
+			margin-bottom: 40px;
+			word-spacing: 5px;
+			letter-spacing: 2px;
+      color: black;
+		}
 
-.btn-home-cards-info{
-  font-weight: bold;
-  font-size: 32px;
-  font-family: 'Oswald', sans-serif;
-  background-color: transparent;
-  border-color: none;
-  border: none;
-}
+		.btn-landing {
+			color: #ffffff;
+			font-size: 25px;
+			margin: 10px 0px;
+			padding: 14px 35px;
+			border-radius: 4px;
+			background: #000000;
+			display: inline-block;
+			-webkit-transition: background 0.3s ease;
+			transition: background 0.3s ease;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+	}
 
-.btn-home-cards-info a{
-  color: white;
-}
+	.hero-text-box {
+		position: absolute;
+		width: 1140px;
+		top: 70%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		color: white;
+	}
 
+	.row {
+		max-width: 1140px;
+		margin: 0 auto;
+	}
 
+	.m-40 {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
 
-strong {
-  position: relative;
+	section {
+		padding: 100px 0;
+	}
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -0.125rem;
-    left: -0.5rem;
-    right: -0.5rem;
-    height: 0.75rem;
+	.box {
+		padding: 20px;
+		margin: 10px;
+		border: 1px solid rgb(209, 208, 208);
+		box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+	}
+	.section-features .long-copy {
+		margin-bottom: 30px;
+	}
 
-    // Position the line behind the text so that
-    // it is still easily readable
-    z-index: -1;
+	.long-copy {
+		line-height: 170%;
+		width: 70%;
+		margin-left: 15%;
+		font-family: ‘Lato’, sans-serif;
+		font-size: 20px;
+	}
 
-    // The SVG is added as an SVG background image
-    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/664131/underline.svg');
-    background-repeat: no-repeat;
+	.box p {
+		line-height: 145%;
+		font-family: ‘Lato’, sans-serif;
+		font-size: 16px;
+	}
 
-    // This allows the SVG to flex in size to fit
-    // any length of word. If the word is short,
-    // the SVG will be stretched vertically, if it
-    // is long, the SVG will be stretched horizontally.
-    // The jagged nature of this particular SVG works
-    // with this transforming.
-    background-size: cover;
-  }
+	.icon-big {
+		font-size: 350%;
+		display: block;
+		color: #ef6666;
+		margin-bottom: 10px;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+	.icon-small {
+		display: inline-block;
+		width: 30px;
+		text-align: center;
+		color: #ef6666;
+		font-size: 120%;
+		margin-right: 10px;
+
+		/* secrets to align text and icons*/
+		line-height: 120%;
+		vertical-align: middle;
+		margin-top: -5px;
+	}
+
+	/*--------------------------*/
+	/* SHOWCASE */
+	/*--------------------------*/
+	.section-showcase {
+		padding: 0;
+
+		ul {
+			padding-left: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	.landing-showcase {
+		list-style: none;
+		width: 100%;
+	}
+
+	.landing-showcase li {
+		display: block;
+		float: left;
+		width: 25%; /* 4 li elements, have to add up to 100% so its 25% each*/
+	}
+
+	.showcase-photo {
+		width: 100%;
+		margin: 0;
+		overflow: hidden;
+		background-color: #000;
+	}
+
+	.showcase-photo img {
+		opacity: 0.7;
+		width: 100%;
+		height: auto;
+		-webkit-transform: scale(1.15);
+		transform: scale(1.15);
+		-webkit-transition: -webkit-transform 0.5s;
+		transition: -webkit-transform 0.5s;
+		transition: transform 0.5s;
+		transition: transform 0.5s, -webkit-transform 0.5s;
+	}
+
+	.showcase-photo img:hover {
+		opacity: 1;
+		-webkit-transform: scale(1.03);
+		transform: scale(1.03);
+	}
+
+	/*--------------------------*/
+	/* CUSTOMER TESTIMONIALS */
+	/*--------------------------*/
+	.section-testimonials {
+		color: black;
+		background-color: #ffffff;
+		text-align: center;
+		padding-bottom: 150px;
+		padding-top: 160px;
+
+		h2 {
+			text-transform: uppercase;
+			font-size: 46px;
+			word-spacing: 2px;
+			text-align: center;
+			padding-left: 140px;
+			margin-bottom: 30px;
+			letter-spacing: 1px;
+			padding-bottom: 70px;
+		}
+	}
+
+	blockquote {
+		padding: 2%;
+		font-style: italic;
+		line-height: 145%;
+		position: relative;
+		margin: 40px;
+		font-family: ‘Lato’, sans-serif;
+		font-size: 16px;
+	}
+
+	cite {
+		margin-top: 25px;
+		display: block;
+		font-family: ‘Lato’, sans-serif;
+		font-size: 16px;
+	}
+
+	blockquote:before {
+		content: '\201C';
+		font-size: 500%;
+		display: block;
+		position: absolute; /* when element absolute, parent has to have relative position (blockquote)*/
+		top: -5px;
+		left: -5px;
+	}
+
+	cite img {
+		height: 100px;
+		border-radius: 50%;
+		margin-right: 10px;
+		vertical-align: middle;
+		width: 100px;
+		object-fit: cover;
+		border: 4px solid #f66666;
+	}
 }
