@@ -1,6 +1,6 @@
 <div class="banner-index" >
   <div class="banner-container">
-    <h1>PROJECTS</h1>
+    <h1 class="index-header" style="font-family: 'Oswald', sans-serif;">PROJECTS</h1>
     <div class="container-form">
       <%= form_tag projects_path, class: "search-form", method: :get do %>
         <%= text_field_tag :query,
@@ -9,14 +9,14 @@
           placeholder: "Find a project"
         %>
         <button type="submit" class="btn">
-          <i class="fa fa-search"></i>
+          <i class="fa fa-search grow"></i>
         </button>
       <% end %>
       </div>
   </div>
 </div>
 <div class="container search">
-  <div class="container">
+  <div class="container-index">
     <div class="cards">
       <% @projects.each do |project| %>
         <div class="card-product">
@@ -30,7 +30,18 @@
           </div>
           <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
             <div class="card-product-infos project-card">
-              <h2><%= project.name %></h2>
+              <div class="title-heart">
+                <h2><%= project.name %></h2>
+                <% if project.likes.where(user_id: current_user.id).length == 1 %>
+                  <%= link_to like_path(project.likes.where(user_id: current_user.id)[0]), method: :delete, class: "save-heart-index" do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to  project_likes_path(project), method: :post, class: "save-heart-index" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+              </div>
               <p>Category: <%=project.category %></p>
               <p>Location: <%= project.location %></p>
               <p>Project description: <%= project.project_description.truncate(120) %> </p>
@@ -41,6 +52,8 @@
       <% end %>
     </div>
   </div>
-  <%= link_to "Back to Home", root_path, class: "btn btn-flat" %>
+  <div class="index-back">
+    <%= link_to "Back to Home", root_path, class: "btn btn-flat" %>
+  </div>
 </div>
 

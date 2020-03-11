@@ -2,13 +2,13 @@
 <div class="banner-charity" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @charity.photo.key %>);">
 <div class="charity-header">
   <div class="your-charity-details">
-    <h1 class ="welcome" style="font-family: 'Oswald', sans-serif;">Welcome.. <%= @charity.name %></h1>
+    <h1 class ="welcome" style="font-family: 'Oswald', sans-serif;">Welcome <%= @charity.name %></h1>
     <br>
     <h4 class ="how" style="font-family: 'Oswald', sans-serif;">How is <%= @charity.location %> today?</h4>
 
 
   </div>
-  <%= link_to "Register a Project", new_project_path, class: "btn btn-flat charity-show-button" %>
+  <%= link_to "Create a Project", new_project_path, class: "btn btn-flat charity-show-button" %>
 </div>
 </div>
 
@@ -32,12 +32,12 @@
     </thead>
     <tbody>
       <% @charity.projects.each do |project| %>
-        <% project.bookings.where(status: 'pending').each do |booking| %>
+        <% project.bookings.where(status: 'Pending').each do |booking| %>
         <tr class="test-d">
           <td><%= project.name %></td>
           <td><%= booking.user.name %></td>
-          <td><%= link_to "LinkedIn", current_user.linkedin_url, target: '_blank',class: "btn btn-light"  %></td>
-          <td><%= link_to "Github", current_user.github_url, target: '_blank',class: "btn btn-light"  %></td>
+          <td><%= link_to "LinkedIn", booking.user.linkedin_url, target: '_blank',class: "btn btn-dark btn-block"  %></td>
+          <td><%= link_to "Github", booking.user.github_url, target: '_blank',class: "btn btn-dark btn-block"  %></td>
           <td><%= booking.user.bio %></td>
           <td><%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-outline-success" %></td>
           <td><%= link_to 'Reject', reject_booking_path(booking), method: :patch, class: "btn btn-outline-danger" %></td>
@@ -52,14 +52,14 @@
 
 
 <div class="your-charity-projects">
-  <h2 style="font-family: 'Oswald', sans-serif";>Running Projects</h2>
+  <h2 style="font-family: 'Oswald', sans-serif; color: black;">Running Projects</h2>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Project</th>
-          <th scope="col">Category</th>
-          <th scope="col">Due Date</th>
-           <th scope="col">FINISHED?</th>
+          <th scope="col">PROJECT</th>
+          <th scope="col">CATEGORY</th>
+          <th scope="col">DUE DATE</th>
+           <th scope="col">FINISHED</th>
         </tr>
       </thead>
       <tbody>
@@ -68,7 +68,7 @@
             <td><%= link_to project.name || @charity.name, project_path(project),class: "btn btn-dark btn-block"  %></td>
             <td><%= project.category %></td>
             <td><%= project.deadline %></td>
-            <td><%= link_to 'Archive Project', project_path(project), method: :delete, class: "btn btn-light " %></td>
+            <td><%= link_to 'Archive Project', project_path(project), method: :delete, class: "btn btn-dark btn-block" %></td>
           </tr>
         <% end %>
       </tbody>

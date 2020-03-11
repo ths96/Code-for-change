@@ -21,7 +21,7 @@
 }
 
 .btn-flat:hover {
-  background: #8B8C89;
+  background: #EF6666;
   color: white;
 }
 
@@ -47,4 +47,31 @@
   background: black;
   color: white;
   transition: background 0.3s ease;
+}
+
+.btn-block {
+  border: none;
+}
+
+.btn-block:hover {
+  background: #EF6666;
+}
+
+.index-back {
+  text-align: center;
+}
+
+.fa-search {
+   &.grow {
+  transition: all .2s ease-in-out;
+  &:hover {
+  transform: scale(1.5);
+        }
+  }
+}
+
+.btn-outline-success:hover {
+  color: white;
+  background-color: #1EDD88;
+  border-color: #1EDD88;
 }

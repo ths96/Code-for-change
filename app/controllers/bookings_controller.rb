@@ -1,9 +1,15 @@
 class BookingsController < ApplicationController
 
   def create
+    if current_user.bookings.where(project_id: params[:project_id]).length > 0
+      flash[:alert] = "You already applied for #{Project.find(params[:project_id]).name}!"
+      redirect_to project_path(params[:project_id])
+      return
+    end
     @booking = Booking.new(project_id: params[:project_id], user_id: current_user.id, status: 'Pending')
     @booking.save
-    redirect_to profile_path
+    redirect_to projects_path
+    flash[:alert] = "Yay 🎉 you have sucessfully applied to #{@booking.project.name}!"
 	end
 
 	def show
@@ -26,7 +32,7 @@ class BookingsController < ApplicationController
     redirect_to charity_path(@booking.project.charity)
   end
 
-    def destroy
+  def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to profile_path
