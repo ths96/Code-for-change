@@ -1,6 +1,6 @@
 <div class="banner-index" >
   <div class="banner-container">
-    <h1 style="font-family: 'Oswald', sans-serif;">PROJECTS</h1>
+    <h1 class="index-header" style="font-family: 'Oswald', sans-serif;">PROJECTS</h1>
     <div class="container-form">
       <%= form_tag projects_path, class: "search-form", method: :get do %>
         <%= text_field_tag :query,
@@ -16,7 +16,7 @@
   </div>
 </div>
 <div class="container search">
-  <div class="container">
+  <div class="container-index">
     <div class="cards">
       <% @projects.each do |project| %>
         <div class="card-product">

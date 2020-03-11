@@ -1,15 +1,26 @@
 .banner-index {
   .form-control {
-    margin: 20px;
+    margin: 40px;
     width: 500px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     border-radius: 30px;
   }
+  .form-control:hover {
+    border-color: #EF6666;
+    transition-delay: 0.5s;
+    opacity: 0.8;
+    transition: 1s ease;
+  }
 }
 
 .search-form {
+  display: inline-flex;
+  margin: auto;
+}
+
+.search-form:hover {
   display: inline-flex;
   margin: auto;
 }
