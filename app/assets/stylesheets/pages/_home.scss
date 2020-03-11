@@ -12,11 +12,12 @@
 
 	h2 {
 		text-transform: uppercase;
-		font-size: 46px;
+		font-size: 30px;
 		word-spacing: 2px;
 		text-align: center;
 		margin-bottom: 30px;
 		letter-spacing: 1px;
+		font-family: 'Oswald', sans-serif;
 	}
 
 	h2:after {
@@ -26,34 +27,31 @@
 		content: ' ';
 		width: 200px;
 		margin: 0 auto;
-		margin-top: 30px;
+		margin-top: 15px;
 	}
 
 	h3 {
 		text-transform: uppercase;
 		font-weight: bold;
-		font-size: 110%;
-		margin-bottom: 15%;
+		font-size: 16px;
+		margin-bottom: 7%;
 		text-align: center;
 	}
 
 	.landing-page {
-		// background-color: #ef6666;
-		background-image: url('/assets/19.jpg');
-		// background: linear-gradient(
-  //     rgba(0, 0, 0, 0.5),
-  //     rgba(0, 0, 0, 0.5)
-		// );
+		// background-color: #000000;
+		background-image: url('/assets/cool-background.png');
+		// background: linear-gradient(274deg, #ffffff 11%, #000000 58%, #000000 100%);
 		background-size: cover;
 		background-position: center;
-		height: 100vh;
+		height: calc(100vh - 70px);
 		background-attachment: fixed;
 		.title-landing {
 			font-weight: bold;
-			font-size: 5rem;
+			font-size: 4rem;
 			font-family: 'Oswald', sans-serif;
 			text-transform: uppercase;
-			margin-bottom: 40px;
+			margin-bottom: 3%;
 			word-spacing: 5px;
 			letter-spacing: 2px;
       color: black;
@@ -65,6 +63,7 @@
 			margin: 10px 0px;
 			padding: 14px 35px;
 			border-radius: 4px;
+			border: 2px solid #ef6666;
 			background: #000000;
 			display: inline-block;
 			-webkit-transition: background 0.3s ease;
@@ -87,43 +86,54 @@
 	.row {
 		max-width: 1140px;
 		margin: 0 auto;
+		justify-content: center;
 	}
 
 	.m-40 {
-		margin-top: 40px;
-		margin-bottom: 40px;
+		margin-top: 20px;
+		margin-bottom: 20px;
 	}
 
 	section {
 		padding: 100px 0;
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: center;
 	}
 
 	.box {
 		padding: 20px;
-		margin: 10px;
+		margin: 7px;
 		border: 1px solid rgb(209, 208, 208);
 		box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
 	}
-	.section-features .long-copy {
-		margin-bottom: 30px;
+	.section-features {
+		height: calc(100vh - 70px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		.long-copy {
+			margin-bottom: 15px;
+		}
 	}
 
 	.long-copy {
 		line-height: 170%;
-		width: 70%;
-		margin-left: 15%;
+		width: 90%;
+		// margin-left: 15%;
 		font-family: ‘Lato’, sans-serif;
-		font-size: 20px;
+		font-size: 16px;
 	}
 
 	.box p {
 		line-height: 145%;
 		font-family: ‘Lato’, sans-serif;
-		font-size: 16px;
+		font-size: 14px;
+		text-align: center;
 	}
 
 	.icon-big {
-		font-size: 350%;
+		font-size: 300%;
 		display: block;
 		color: #ef6666;
 		margin-bottom: 10px;
@@ -197,21 +207,21 @@
 	/* CUSTOMER TESTIMONIALS */
 	/*--------------------------*/
 	.section-testimonials {
+		height: calc(100vh - 70px);
 		color: black;
 		background-color: #ffffff;
 		text-align: center;
-		padding-bottom: 150px;
-		padding-top: 160px;
+		padding-bottom: 50px;
+		padding-top: 60px;
 
 		h2 {
+			padding-top: 40px;
 			text-transform: uppercase;
-			font-size: 46px;
+			font-size: 30px;
 			word-spacing: 2px;
 			text-align: center;
-			padding-left: 140px;
 			margin-bottom: 30px;
 			letter-spacing: 1px;
-			padding-bottom: 70px;
 		}
 	}
 
@@ -220,21 +230,21 @@
 		font-style: italic;
 		line-height: 145%;
 		position: relative;
-		margin: 40px;
+		margin: 30px;
 		font-family: ‘Lato’, sans-serif;
-		font-size: 16px;
+		font-size: 14px;
 	}
 
 	cite {
 		margin-top: 25px;
 		display: block;
 		font-family: ‘Lato’, sans-serif;
-		font-size: 16px;
+		font-size: 14px;
 	}
 
 	blockquote:before {
 		content: '\201C';
-		font-size: 500%;
+		font-size: 300%;
 		display: block;
 		position: absolute; /* when element absolute, parent has to have relative position (blockquote)*/
 		top: -5px;
@@ -242,11 +252,11 @@
 	}
 
 	cite img {
-		height: 100px;
+		height: 90px;
 		border-radius: 50%;
 		margin-right: 10px;
 		vertical-align: middle;
-		width: 100px;
+		width: 90px;
 		object-fit: cover;
 		border: 4px solid #f66666;
 	}
