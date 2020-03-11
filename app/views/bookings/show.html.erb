@@ -9,15 +9,16 @@
 
 
 					<div class="all-info-download">
-
-            <div class="info-download">
+             <div class="info-download">
 							<% if @project.file.attached? %>
-								<p><i class="fas fa-arrow-circle-down icon-dashboard"></i><%= link_to "Project brief", rails_blob_path(@project.file, disposition: 'attachment') %></p>
+							   <i class="fas fa-arrow-circle-down icon-dashboard"></i>
+                 <%= link_to "Project brief", rails_blob_path(@project.file, disposition: 'attachment') %>
 							 <% end %>
-						 </div>
+						  </div>
 
             <div class="info-download">
-							<p><i class="fab fa-github icon-dashboard"></i>Github</p>
+              <i class="fab fa-github icon-dashboard"></i>
+              Github
             </div>
 				  </div>
 		</div>
@@ -32,7 +33,7 @@
 	<div class="section-seperator">
 		<% unless @boards.nil? %>
 			<div class="sm-table trello-updates">
-				<h3 style="font-family: 'Oswald', sans-serif; text-align:center; font-size: 44px; ">TRELLO UPDATES</h3>
+				<h3 style="font-family: 'Oswald', sans-serif; text-align:center; font-size:44px; padding-bottom: 28px;">TRELLO UPDATES</h3>
 				<div class="lists">
 					<% @boards.each do |list| %>
 					<div class="list">
@@ -58,7 +59,7 @@
 
 	<div class="section-seperator">
 		<div class="sm-table collabs">
-			<h3 style="font-family: 'Oswald', sans-serif; text-align:center; font-size: 44px; ">COLLABORATORS</h3>
+			<h3 style="font-family: 'Oswald', sans-serif; text-align:center; font-size: 44px; padding-top: 28px; ">COLLABORATORS</h3>
 			  <div class="collabs-all">
 					<% @collaborators.each do |collaborator| %>
 						<div class="each-collab">
@@ -75,10 +76,6 @@
 										<%= image_tag 'default-avatar.jpg', class: 'user-photo round-avatar' %>
 									<% end %>
 								<% end %>
-								<div class="collab-info">
-									<h5 class="collab-name-main"><%= collaborator.name %></h5>
-									<p><%= link_to "LinkedIn", current_user.linkedin_url, target: '_blank' %></p>
-								</div>
 							</div>
 						</div>
 					<% end %>
