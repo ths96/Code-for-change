@@ -14,8 +14,10 @@
               <div class="project-card-overview">
                 <p class="card-inform">Deadline:  <%= @project.deadline %></i></p>
                 <p class="card-inform">Project Type: <%= @project.category %></i></p>
-                <%= link_to project_bookings_path(@project, page: 'show'), method: :post do %>
-                  <button type="button" class="btn-request" >I'm In!</button>
+                <% if current_user.charity.nil? %>
+                  <%= link_to project_bookings_path(@project, page: 'show'), method: :post do %>
+                    <button type="button" class="btn-request" >I'm In!</button>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -25,13 +27,15 @@
             <p class="charity-link">For more information, please visit: <%= @project.website %></p>
           </div>
         </div>
-        <% if @project.likes.where(user_id: current_user.id).length == 1 %>
-          <%= link_to like_path(@project.likes.where(user_id: current_user.id)[0], project_id: @project.id), method: :delete, class: 'save-heart' do %>
-            <i class="fas fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= link_to project_likes_path(@project, page: 'show'), method: :post, class: 'save-heart' do %>
-            <i class="far fa-heart"></i>
+        <% if current_user.charity.nil? %>
+          <% if @project.likes.where(user_id: current_user.id).length == 1 %>
+            <%= link_to like_path(@project.likes.where(user_id: current_user.id)[0], project_id: @project.id), method: :delete, class: 'save-heart' do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to project_likes_path(@project, page: 'show'), method: :post, class: 'save-heart' do %>
+              <i class="far fa-heart"></i>
+            <% end %>
           <% end %>
         <% end %>
       </div>
