@@ -12,19 +12,19 @@ Charity.destroy_all
 User.destroy_all
 
 url_user100 = "app/assets/images/taylor.jpg"
-user100 = User.create!(email: 'taylorsheridan@gmail.com', password: 'test1234', name: 'Taylor Sheridan', location: 'London, UK', bio: 'I have just finished the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/taylorsheridan1/', github_url: 'https://github.com/ths96', coder: true)
+user100 = User.create!(email: 'taylorsheridan@gmail.com', password: 'test1234', name: 'Taylor Sheridan', location: 'London, UK', bio: 'I am about to finish the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/taylorsheridan1/', github_url: 'https://github.com/ths96', coder: true)
 user100.photo.attach(io: open(url_user100), filename: 'taylor_1')
 
 url_user101 = "app/assets/images/kathryn.jpg"
-user101 = User.create!(email: 'kathrynarmitage@gmail.com', password: 'test1234', name: 'Kathryn Armitage', location: 'London, UK', bio: 'I have just finished the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/kathryn-armitage-695727133/', github_url: 'https://github.com/KathrynArmitage', coder: true)
+user101 = User.create!(email: 'kathrynarmitage@gmail.com', password: 'test1234', name: 'Kathryn Armitage', location: 'London, UK', bio: 'I am about to finish the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/kathryn-armitage-695727133/', github_url: 'https://github.com/KathrynArmitage', coder: true)
 user101.photo.attach(io: open(url_user101), filename: 'kathryn_1')
 
 url_user102 = "app/assets/images/iram.jpg"
-user102 = User.create!(email: 'iramshehzadi@gmail.com', password: 'test1234', name: 'Iram Shehzadi', location: 'London, UK', bio: 'I have just finished the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/iram-shehzadi/', github_url: 'https://github.com/Iram193', coder: true)
+user102 = User.create!(email: 'iramshehzadi@gmail.com', password: 'test1234', name: 'Iram Shehzadi', location: 'London, UK', bio: 'I am about to finish the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/iram-shehzadi/', github_url: 'https://github.com/Iram193', coder: true)
 user102.photo.attach(io: open(url_user102), filename: 'iram_1')
 
 url_user103 = "app/assets/images/tom.jpg"
-user103 = User.create!(email: 'tomharwood@gmail.com', password: 'test1234', name: 'Tom Harwood', location: 'Oxford, UK', bio: 'I have just finished the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/tom-harwood88/', github_url: 'https://github.com/tharwoodyy', coder: true)
+user103 = User.create!(email: 'tomharwood@gmail.com', password: 'test1234', name: 'Tom Harwood', location: 'Oxford, UK', bio: 'I am about to finish the Full-Stack Web Developer course at Le Wagon', linkedin_url: 'https://www.linkedin.com/in/tom-harwood88/', github_url: 'https://github.com/tharwoodyy', coder: true)
 user103.photo.attach(io: open(url_user103), filename: 'tom_1')
 
 user1 = User.create!(email: 'tom@gmail.com', password: 'test1234')
