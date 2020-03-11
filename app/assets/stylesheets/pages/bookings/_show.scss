@@ -1,117 +1,82 @@
-.section-seperator {
-	padding: 100px 0px 100px 0px;
-	// background-color: whitesmoke;
-	// position: absolute;
-	// left: 0;
-	// right: 0;
-}
+// banner and info
 
-.black-bg {
-	background-color: black;
-	color: white;
-	background-color: white;
-	color: black;
-	position: sticky;
-	top: 0;
-	border-bottom: 4px solid #ef6666;
-}
-.collabs-all {
-	display: flex;
-	justify-content: center;
-	padding-right: 25px;
-}
+.banner-project {
+  background-size: cover;
+  background-position: bottom;
+  height: 500px;
+  border-bottom: 5px solid #ED4B4B;
 
-.each-collab {
-	&:hover {
-		.collab-name {
-			opacity: 1;
-		}
-		.user-photo {
-			position: relative;
-			z-index: 1;
-		}
-	}
-}
-
-.collab-name {
-	background: black;
-	opacity: 0;
-	padding: 10px;
-	margin-bottom: 10px;
-	transition: opacity 0.1s ease;
-	p {
-		text-align: center;
-		color: white;
-		margin: 0;
-	}
-}
-.collab-profile {
-	margin-right: -25px;
-	position: relative;
-
-	.user-photo {
-		width: 100px;
-		height: 100px;
-		border-radius: 50%;
-		border: 2px solid white;
-		cursor: pointer;
-		transition: all 300ms ease;
-	}
 }
 
 .booking-info {
-	display: flex;
-	width: 50%;
-	flex-direction: column;
-	justify-content: space-around;
-	padding-left: 10px;
-
-	.icon-dashboard {
-		font-size: 35px;
-		padding: 10px;
-		top: 7px;
-		position: relative;
-		color: black;
-	}
-
-	h5 {
-		font-size: 2rem;
-	}
-	h4 {
-		font-size: 3.5rem;
-	}
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 50px;
+  }
+h4, h5{
+  color: #FFFFFF;
+  font-family:'Oswald', sans-serif;
+  font-size: 57px;
 }
+
+h4 {
+  padding-bottom: 15px;
+
+
+
+}
+
+
+
 .your-project {
-	// padding: 20px;
-	border: 1px solid white;
-	box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 
-	.img-dashboard {
-		width: 50%;
-		height: 100%;
-		object-fit: cover;
-	}
-	.all-info-download {
-		display: flex;
-		flex-direction: row;
+  .img-dashboard {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .all-info-download {
+    display: flex;
+    flex-direction: row;
 
-		.info-download {
-			width: 30%;
-		}
-	}
+    .info-download {
+      width: 30%;
+    }
+  }
 }
 
-.sm-table {
-	color: #3a4750;
-	margin-bottom: 50px;
-	padding-top: 80px;
+.icon-dashboard {
+    font-size: 65px;
+    padding: 10px;
+    top: 7px;
+    position: relative;
+    color: white;
+  }
+
+//.sm-table {
+  //color: #3a4750;
+  //margin-bottom: 50px;
+  //padding-top: 80px;
+//}
+
+
+
+//trello
+
+.trello-header {
+  color: black;
 }
+
 
 .trello-updates {
 	font-family: inherit;
+  margin-top: 100px;
 	.lists {
 		display: flex;
 		.list {
@@ -162,3 +127,59 @@
 		}
 	}
 }
+
+
+//collaborators
+
+
+.collabs-all {
+  display: flex;
+  justify-content: center;
+  //padding-right: 25px;
+}
+
+.each-collab {
+  &:hover {
+    .collab-name {
+      opacity: 1;
+    }
+    .user-photo {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.collab-name {
+  background: black;
+  opacity: 0;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: opacity 0.1s ease;
+  p {
+    text-align: center;
+    color: white;
+    margin: 0;
+  }
+}
+.collab-profile {
+  margin-right: -25px;
+  position: relative;
+
+  .user-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 300ms ease;
+  }
+}
+
+.collab-name-main {
+  color:black;
+  font-size: 16px;
+
+
+}
+
