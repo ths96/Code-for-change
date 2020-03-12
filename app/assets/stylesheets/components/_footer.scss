@@ -40,21 +40,24 @@
 
 
 
-.footer-links a {
-  opacity: 0.15;
+.footer-links a {//opacity: 0.15;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 30px;
   padding-right: 10px;
 }
 
 
-.footer-links a:hover {
-  opacity: 1;
+.icons {
+  font-size: 12px;
+
+
 }
 
 
 a.icons {
   color: black;
+
+
 }
 
 a.icons:hover {

@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   resources :likes, only: [:destroy]
 
-  resources :projects
   resources :charities
 
   get "profile", to: "pages#profile"

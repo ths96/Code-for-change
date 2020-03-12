@@ -16,6 +16,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'turbolinks'
+gem 'turbolinks_render'
 gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
 
