@@ -15,68 +15,78 @@
 
 
 
-
-<div class="your-charity-applications design-table">
-  <h2 style="font-family: 'Oswald', sans-serif;">Applications</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">PROJECT</th>
-        <th scope="col">APPLICANT</th>
-        <th scope="col">LINKEDIN PROFILE</th>
-        <th scope="col">GITHUB PROFILE</th>
-        <th scope="col">BIO</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @charity.projects.each do |project| %>
-        <% project.bookings.where(status: 'Pending').each do |booking| %>
-        <tr class="test-d">
-          <td><%= project.name %></td>
-          <td><%= booking.user.name %></td>
-          <td><%= link_to "LinkedIn", booking.user.linkedin_url, target: '_blank',class: "btn btn-dark btn-block"  %></td>
-          <td><%= link_to "Github", booking.user.github_url, target: '_blank',class: "btn btn-dark btn-block"  %></td>
-          <td><%= booking.user.bio %></td>
-          <td><%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-outline-success" %></td>
-          <td><%= link_to 'Reject', reject_booking_path(booking), method: :patch, class: "btn btn-outline-danger" %></td>
-        </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<% @charity.projects.each do |project| %>
+  <% if project.bookings.empty? %>
+    <h1 class="Waiting"> Waiting for applications! </h1>
+  <% else %>
+    <div class="your-charity-applications design-table">
+      <h2 style="font-family: 'Oswald', sans-serif;">Applications</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">PROJECT</th>
+            <th scope="col">APPLICANT</th>
+            <th scope="col">LINKEDIN PROFILE</th>
+            <th scope="col">GITHUB PROFILE</th>
+            <th scope="col">BIO</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @charity.projects.each do |project| %>
+            <% project.bookings.where(status: 'Pending').each do |booking| %>
+            <tr class="test-d">
+              <td><%= project.name %></td>
+              <td><%= booking.user.name %></td>
+              <td><%= link_to "LinkedIn", booking.user.linkedin_url, target: '_blank',class: "btn btn-dark btn-block"  %></td>
+              <td><%= link_to "Github", booking.user.github_url, target: '_blank',class: "btn btn-dark btn-block"  %></td>
+              <td><%= booking.user.bio %></td>
+              <td><%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-outline-success" %></td>
+              <td><%= link_to 'Reject', reject_booking_path(booking), method: :patch, class: "btn btn-outline-danger" %></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+<% end %>
 
 
 
 
 <div class="your-charity-projects">
   <h2 style="font-family: 'Oswald', sans-serif; color: black;">Our Projects</h2>
+  <% if @charity.projects.empty? %>
+      <h1 class="projects-are-empty"> You currently don't have any projects registered 🙁 <br> <%= link_to "Create a Project", new_project_path, class: "btn btn-flat charity-show-button btn-register-now" %></h1>
+  <% else %>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">PROJECT</th>
           <th scope="col">CATEGORY</th>
           <th scope="col">DUE DATE</th>
-           <th scope="col">FINISHED</th>
+           <th scope="col">ACTION</th>
         </tr>
       </thead>
       <tbody>
         <% @charity.projects.each do |project| %>
           <tr>
-            <% if project.bookings.present? %>
-              <td><%= link_to project.name || @charity.name, booking_path(project.bookings.first.id),class: "btn btn-dark btn-block" %></td>
-            <% else %>
-              <td><%= project.name %></td>
-            <% end %>
+<!--             <%# if project.bookings.present? %>
+              <td><%#= link_to project.name || @charity.name, booking_path(project.bookings.first.id),class: "btn btn-dark btn-block " %></td>
+            <%# else %>
+              <td><%#= project.name %></td>
+            <%# end %> -->
+            <td class="profile-project-name"><%= link_to project.name, project_path(project) %></td>
             <td><%= project.category %></td>
             <td><%= project.deadline %></td>
-            <td><%= link_to 'Archive Project', project_path(project), method: :delete, class: "btn btn-dark btn-block" %></td>
+            <td><%= link_to 'Delete Project', project_path(project), method: :delete, class: "btn btn-dark btn-block" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+  <% end %>
 </div>
 
 

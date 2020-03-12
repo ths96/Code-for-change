@@ -42,62 +42,71 @@
 </div>
 
 <!-- <h2 class="h2-projects"> MY PROJECTS </h2> -->
-<div class="your-projects" id="projects">
-<p style="font-family: 'Oswald'; font-size: 32px; text-align: center; margin-top: 5px; color: black;">MY PROJECTS</p>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">CHARITY</th>
-      <th scope="col">LOCATION</th>
-      <th scope="col">STATUS</th>
-      <th scope="col">DEADLINE</th>
-      <th scope="col">PROJECT</th>
-      <th scope="col">FINISHED?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% current_user.bookings.each do |booking| %>
-        <tr>
-          <td><%= booking.project.charity.name %></td>
-          <td><%= booking.project.location %></td>
-          <td><%= booking.status %></td>
-          <td><%= booking.project.deadline %></td>
-          <td><%= link_to booking.project.name || booking.project.charity.name, booking_path(booking),class: "btn btn-dark btn-block"  %></td>
-          <td><%= link_to 'Archive Project', booking_path(booking), method: :delete, class: "btn btn-dark btn-block" %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+<% if current_user.bookings.empty? %>
+  <h1 class="empty-user-booking"> You haven't applied for any projects 🙁 </h1>
+  <%= link_to "Search for a Project", projects_path, class: "btn btn-flat charity-show-button btn-search-for-user-profile" %>
+<% else %>
+  <div class="your-projects" id="projects">
+  <p style="font-family: 'Oswald'; font-size: 32px; text-align: center; margin-top: 5px; color: black;">MY PROJECTS</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">CHARITY</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">STATUS</th>
+        <th scope="col">DEADLINE</th>
+        <th scope="col">PROJECT</th>
+        <th scope="col">FINISHED?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.bookings.each do |booking| %>
+          <tr>
+            <td><%= booking.project.charity.name %></td>
+            <td><%= booking.project.location %></td>
+            <td><%= booking.status %></td>
+            <td><%= booking.project.deadline %></td>
+            <td><%= link_to booking.project.name || booking.project.charity.name, booking_path(booking),class: "btn btn-dark btn-block"  %></td>
+            <td><%= link_to 'Archive Project', booking_path(booking), method: :delete, class: "btn btn-dark btn-block" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+<% end %>
 
 <!-- <h2 class="h2-projects"> MY SAVED PROJECTS </h2> -->
-<div class ="your-saved-projects">
-<p style="font-family: 'Oswald'; font-size: 32px; text-align: center; color: black;">MY SAVED PROJECTS</p>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">CHARITY</th>
-      <th scope="col">LOCATION</th>
-      <th scope="col">DEADLINE</th>
-      <th scope="col">PROJECT</th>
-      <th scope="col">JOIN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% current_user.likes.each do |like| %>
-        <tr>
-          <td><%= like.project.charity.name %></td>
-          <td><%= like.project.location %></td>
-          <td><%= like.project.deadline %></td>
-          <td><%= link_to like.project.name, like_path(like),class: "btn btn-dark btn-block"  %></td>
-          <td><%= link_to "I'm In!", project_bookings_path(like.project, page: 'profile'), method: :post, class: "btn btn-dark btn-block" %></td>
-          <td>
-             <%= link_to like_path(like, page: 'profile'), method: :delete, class: 'heart-profile-profile' do %>
-                <i class="fas fa-heart"></i>
-              <% end %>
-          </td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+<% if current_user.likes.empty?%>
+  <h1 class="empty-user-booking"> You haven't saved any projects yet 💔 </h1>
+<% else %>
+  <div class ="your-saved-projects">
+  <p style="font-family: 'Oswald'; font-size: 32px; text-align: center; color: black;">MY SAVED PROJECTS</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">CHARITY</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">DEADLINE</th>
+        <th scope="col">PROJECT</th>
+        <th scope="col">JOIN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.likes.each do |like| %>
+          <tr>
+            <td><%= like.project.charity.name %></td>
+            <td><%= like.project.location %></td>
+            <td><%= like.project.deadline %></td>
+            <td><%= link_to like.project.name, like_path(like),class: "btn btn-dark btn-block"  %></td>
+            <td><%= link_to "I'm In!", project_bookings_path(like.project, page: 'profile'), method: :post, class: "btn btn-dark btn-block" %></td>
+            <td>
+               <%= link_to like_path(like, page: 'profile'), method: :delete, class: 'heart-profile-profile' do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+            </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+<% end %>

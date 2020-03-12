@@ -10,11 +10,32 @@ body {
 }
 
 // headers and charity info
+
+h1.Waiting {
+  color: black;
+  font-family: Oswald, sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+
+.btn-edit {
+  margin-right: 10px;
+}
+
 .your-charity-details {
   padding: 20px;
   margin: 120px;
   width: 600px;
   }
+
+.projects-are-empty {
+  font-family: Oswald, sans-serif;
+  font-size: 20px;
+}
+
+.btn-register-now {
+  margin: 20px auto !important;
+}
 
 .charity-header {
   display: flex;
@@ -73,6 +94,10 @@ body {
 .charity-show-button:hover {
   background: #ED4B4B;
 
+}
+
+.profile-project-name a{
+  color: black;
 }
 
 .charity-photo {
