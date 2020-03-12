@@ -34,19 +34,24 @@
 	justify-content: space-between;
 }
 
-.footer-links a {
-	opacity: 0.15;
-	text-decoration: none;
-	font-size: 24px;
-	padding-right: 10px;
+
+
+
+.footer-links a {//opacity: 0.15;
+  text-decoration: none;
+  font-size: 30px;
+  padding-right: 10px;
 }
 
-.footer-links a:hover {
-	opacity: 1;
+
+.icons {
+  font-size: 12px;
+
 }
 
 a.icons {
-	color: black;
+  color: black;
+
 }
 
 a.icons:hover {

@@ -15,6 +15,7 @@
   align-items: center;
   margin: 20px;
   border-radius: 8px;
+  position: relative;
 
   .btn-flat {
     margin-left: auto;
@@ -184,6 +185,9 @@
 
 .save-heart-index {
   color: red;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .save-heart-index:hover {
