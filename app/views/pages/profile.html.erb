@@ -42,6 +42,7 @@
 </div>
 
 <!-- <h2 class="h2-projects"> MY PROJECTS </h2> -->
+
 <% if current_user.bookings.empty? %>
   <h1 class="empty-user-booking"> You haven't applied for any projects 🙁 </h1>
   <%= link_to "Search for a Project", projects_path, class: "btn btn-flat charity-show-button btn-search-for-user-profile" %>
@@ -56,7 +57,7 @@
         <th scope="col">STATUS</th>
         <th scope="col">DEADLINE</th>
         <th scope="col">PROJECT</th>
-        <th scope="col">FINISHED?</th>
+        <th scope="col">FINISHED</th>
       </tr>
     </thead>
     <tbody>
@@ -89,6 +90,7 @@
         <th scope="col">DEADLINE</th>
         <th scope="col">PROJECT</th>
         <th scope="col">JOIN</th>
+        <th scope="col">SAVED</th>
       </tr>
     </thead>
     <tbody>
@@ -110,3 +112,4 @@
   </table>
   </div>
 <% end %>
+

@@ -8,7 +8,7 @@
      <%= simple_form_for [@charity, @project] do |f| %>
        <%= f.input :name, label: "Enter the name of your project" %>
        <%= f.input :category, :collection => %w[Front-end Back-end Full-stack], label: 'Enter the type of project you want completed' %>
-       <%= f.input :deadline, as: :date, order: [:day, :month, :year], label: 'Submit the date you would like your project to be completed' %>
+       <%= f.input :deadline, as: :date, html5: true, order: [:day, :month, :year], label: 'Submit the date you would like your project to be completed' %>
        <%= f.input :point_of_contact, label: 'Enter an e-mail for the individual who will be the point of contact for the duration of the project'%>
        <%= f.input :location, label: 'Enter the address of your charity', input_html: {class:"location_input"}%>
        <%= f.input :project_description, as: :text, label: 'Give a short description of your project and the functions and/or design features you want included'%>
@@ -16,7 +16,9 @@
        <%= f.input :photo, label: 'Attach your a photo for your charity'%>
        <%= f.input :trello_token %>
        <%= link_to 'Authorize Trello', "https://trello.com/1/authorize?expiration=never&name=Code For Change&scope=read&response_type=token&key=#{ENV['TRELLO_API_KEY']}", target: '_blank', class:"btn btn-info" %>
-       <%= f.submit 'Create a project',class: "btn btn-dark"  %>
+
+       <%= f.submit 'Create a project', class: "btn btn-dark"  %>
+
      <% end %>
   </div>
 </div>
