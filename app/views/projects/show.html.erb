@@ -1,4 +1,7 @@
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @project.photo.key %>);">
+   <%= link_to projects_path do %>
+      <i class="fas fa-arrow-left back-arrow"></i>
+    <% end %>
   <h1 class="charity-name"><%=@project.charity.name%></h1>
   <div class="container">
     <div class="row justify-content-center">
