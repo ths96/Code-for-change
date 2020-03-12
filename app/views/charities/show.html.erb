@@ -15,8 +15,8 @@
 
 
 
-<% @charity.projects.each do |project| %>
-  <% if project.bookings.empty? %>
+<%# @charity.projects.each do |project| %>
+  <% if @charity.projects.all? { |p| p.bookings.where(status: 'Pending').empty? } %>
     <h1 class="Waiting"> Waiting for applications! </h1>
   <% else %>
     <div class="your-charity-applications design-table">
@@ -51,7 +51,7 @@
       </table>
     </div>
   <% end %>
-<% end %>
+<%# end %>
 
 
 
