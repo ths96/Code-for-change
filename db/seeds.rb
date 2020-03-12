@@ -63,10 +63,11 @@ charity4.photo.attach(io: open(url_trees), filename: 'trees_1')
 
 
 user5 = User.create!(email: 'plastic@gmail.com', password: 'test1234')
-charity5 = Charity.create!(name: 'Reduce All Plastic', description:'Promoting the use of less plastic', location: 'Berlin, Germany', user: user5)
-plastic = Project.create!(name: 'Reduce All Plastic', category: 'Full-stack', charity_description: 'Recycle Rebuild empowers communities to recycle waste into affordable, high-quality building materials, whilst providing an immediate source of income for those affected by natural disasters.', website: 'www.reduceallplastic.org', location: 'Berlin, Germany', project_description: 'We would like a chat function for our collaborators', deadline: '23/08/2020', charity: charity5)
+charity5 = Charity.create!(name: 'Reduce All Plastic', description:'Campaigning for the abolition of all unnecessary single use plastics. Working across the world to protect our oceans and living space from the effects of pollution.', location: 'Berlin, Germany', user: user5)
+plastic = Project.create!(name: 'Reduce All Plastic', category: 'Full-stack', charity_description: 'Reduce All Plastic empowers communities to recycle waste into affordable, high-quality building materials, whilst providing an immediate source of income for those affected by natural disasters.', website: 'www.reduceallplastic.org', location: 'Berlin, Germany', project_description: 'We would like a chat function for our collaborators that would help each other communicate while working on certain projects. Our teams work in pairs so it would only need to support two users, and we have around 10 teams operating at any given time.', deadline: '23/08/2020', charity: charity5)
 url_plastic = "https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 plastic.photo.attach(io: open(url_plastic), filename: 'plastic_1')
+charity5.photo.attach(io: open(url_plastic), filename: 'plastic_1')
 # Booking.create(user: user5, project: turtles, status: 'accepted')
 
 user6 = User.create!(email: 'arnie@gmail.com', password: 'test1234')
