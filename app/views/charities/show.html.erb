@@ -65,7 +65,11 @@
       <tbody>
         <% @charity.projects.each do |project| %>
           <tr>
-            <td><%= link_to project.name || @charity.name, booking_path(project.bookings.first.id),class: "btn btn-dark btn-block"  %></td>
+            <% if project.bookings.present? %>
+              <td><%= link_to project.name || @charity.name, booking_path(project.bookings.first.id),class: "btn btn-dark btn-block" %></td>
+            <% else %>
+              <td><%= project.name %></td>
+            <% end %>
             <td><%= project.category %></td>
             <td><%= project.deadline %></td>
             <td><%= link_to 'Archive Project', project_path(project), method: :delete, class: "btn btn-dark btn-block" %></td>
