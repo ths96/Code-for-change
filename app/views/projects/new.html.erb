@@ -15,7 +15,6 @@
        <%= f.input :photo, label: 'Attach your a photo for your charity'%>
        <%= f.input :trello_token %>
        <%= link_to 'Authorize Trello', "https://trello.com/1/authorize?expiration=never&name=Code For Change&scope=read&response_type=token&key=#{ENV['TRELLO_API_KEY']}", target: '_blank', class:"btn btn-info" %>
-
        <%= f.submit 'Create a project',class: "btn btn-dark"  %>
      <% end %>
   </div>
