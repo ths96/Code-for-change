@@ -6,6 +6,7 @@
 <div class="container">
   <div class="project-form project-new">
      <%= simple_form_for [@charity, @project] do |f| %>
+       <%= f.input :name, label: "Enter the name of your project" %>
        <%= f.input :category, :collection => %w[Front-end Back-end Full-stack], label: 'Enter the type of project you want completed' %>
        <%= f.input :deadline, as: :date, order: [:day, :month, :year], label: 'Submit the date you would like your project to be completed' %>
        <%= f.input :point_of_contact, label: 'Enter an e-mail for the individual who will be the point of contact for the duration of the project'%>
