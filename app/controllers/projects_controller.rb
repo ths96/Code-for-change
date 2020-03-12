@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.charity = current_user.charity
-    @project.deadline = "#{project_params['deadline(3i)']}/#{project_params['deadline(2i)']}/#{project_params['deadline(1i)']}"
+    @project.deadline = Date.parse(params.dig(:project, :deadline)).strftime('%d/%m/%Y')
     if @project.save!
       redirect_to project_path(@project)
     else
