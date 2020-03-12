@@ -24,7 +24,7 @@
             <% if project.photo.attached? %>
               <%= cl_image_tag project.photo.key, class: 'first-charity-photo' %>
                 <div class="index-text" style="">
-                  <%= link_to 'Learn More', project_path(project) %>
+                  <%#= link_to 'Learn More', project_path(project) %>
                  </div>
             <% end %>
           </div>
