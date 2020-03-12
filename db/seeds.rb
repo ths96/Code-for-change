@@ -156,10 +156,22 @@ disease.photo.attach(io: open(url_disease), filename: 'disease_1')
 
 user18 = User.create!(email: 'david@gmail.com', password: 'test1234')
 charity18 = Charity.create!(name: 'Ocean Watch', description:'We monitor the oceans across the globe, monitoring sea levels, tsunami risks, and temperatures.', location: 'Cape Town, South Africa', user: user18)
-ocean = Project.create!(name: 'Ocean Watch', category: 'Back-end', charity_description: 'We monitor the oceans across the globe, monitoring sea levels, tsunami risks, and temperatures.', website: 'www.diseaseresearch.org', location: 'Cape Town, South Africa', project_description: 'Our website is functional, but we would like to add some Javascript effects to make the experience more polished. We also use the Rails framework', deadline: '21/04/2020', charity: charity18)
+ocean = Project.create!(name: 'Ocean Watch', category: 'Back-end', charity_description: 'We monitor the oceans across the globe, monitoring sea levels, tsunami risks, and temperatures.', website: 'www.oceanwatch.org', location: 'Cape Town, South Africa', project_description: 'Our website is functional, but we would like to add some Javascript effects to make the experience more polished. We also use the Rails framework', deadline: '21/04/2020', charity: charity18)
 url_ocean = "https://images.pexels.com/photos/1656579/pexels-photo-1656579.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 ocean.photo.attach(io: open(url_ocean), filename: 'ocean_1')
 # Booking.create(user: user18, project: ocean, status: 'accepted')
+
+user19 = User.create!(email: 'amy@gmail.com', password: 'test1234')
+charity19 = Charity.create!(name: 'Plastic Watch', description:'8 million tonnes of plastic enter the ocean every year. Our aim is to reduce this by half by 2025', location: 'Milan, Italy', user: user19)
+plastic2 = Project.create!(name: 'Plastic Watch', category: 'Back-end', charity_description: '8 million tonnes of plastic enter the ocean every year. Our aim is to reduce this by half by 2025', website: 'www.plasticwatch.org', location: 'Milan,Italy', project_description: ' We have shot some new videos that we want adding to the site, We want it on our homepage so has to look professional and fits with the sites theme.', deadline: '21/07/2020', charity: charity19)
+url_plastic2 = "https://images.unsplash.com/photo-1562027224-de24a4d4acf4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+plastic2.photo.attach(io: open(url_plastic2), filename: 'plastic_2')
+
+user20 = User.create!(email: 'marco@gmail.com', password: 'test1234')
+charity20 = Charity.create!(name: 'People against Plastic', description:'PAP is a marine conservation charity striving to protect the ocean, beaches and marine life. Initially set up in 1995 as a national campaign for improved water quality against sewage, today the charity has expanding support on a broad range of coastline issues. ', location: 'Bali,Indonesia', user: user19)
+plastic3 = Project.create!(name: 'People against Plastic', category: 'full-stack', charity_description: 'PAP is a marine conservation charity striving to protect the ocean, beaches and marine life. Initially set up in 1995 as a national campaign for improved water quality against sewage, today the charity has expanding support on a broad range of coastline issues. ', website: 'www.peopleagainstplastic.org', location: 'Bali, Indonesia', project_description: ' We have shot some new videos that we want adding to the site, We want it on our homepage so has to look professional and fits with the sites theme.', deadline: '7/05/2020', charity: charity20)
+url_plastic3 = "https://images.pexels.com/photos/2447036/pexels-photo-2447036.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+plastic3.photo.attach(io: open(url_plastic3), filename: 'plastic_3')
 
 Project.update_all(trello_token: 'b153769fd2f464911b007433e6544b24e97abff447de7845960a34380647b2f5')
 

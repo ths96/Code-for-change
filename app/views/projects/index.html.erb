@@ -24,13 +24,14 @@
             <% if project.photo.attached? %>
               <%= cl_image_tag project.photo.key, class: 'first-charity-photo' %>
                 <div class="index-text" style="">
-                  <%= link_to 'Learn More', project_path(project) %>
+                  <%#= link_to 'Learn More', project_path(project) %>
                  </div>
             <% end %>
           </div>
           <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
             <div class="card-product-infos project-card">
               <div class="title-heart">
+
                 <h2><%= project.charity.name %></h2>
                 <% if current_user&.charity.nil? %>
                   <% if project.likes.where(user_id: current_user&.id).length == 1 %>
@@ -38,7 +39,7 @@
                       <i class="fas fa-heart"></i>
                     <% end %>
                   <% else %>
-                    <%= link_to  project_likes_path(project), method: :post, class: "save-heart-index" do %>
+                    <%= link_to  project_likes_path(project), method: :post, class: "save-heart-index", remote: true do %>
                       <i class="far fa-heart"></i>
                     <% end %>
                   <% end %>
@@ -58,4 +59,13 @@
     <%= link_to "Back to Home", root_path, class: "btn btn-flat" %>
   </div>
 </div>
-
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    if (localStorage['scroll']) {
+      window.scroll({ top: localStorage['scroll'] });
+    }
+    window.addEventListener('scroll', () => {
+      localStorage['scroll'] = window.scrollY;
+    });
+  })
+</script>

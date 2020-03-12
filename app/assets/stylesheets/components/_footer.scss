@@ -1,70 +1,63 @@
 .footer {
-  // margin: 50px;
-  margin-top: 120px;
-  background: #F4F4F4;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 50px 20px 50px;
-  color: black;
-  background-color: #FFFFFF;
-  border-top: 1px solid lightgrey;
+	// margin: 50px;
+	margin-top: 80px;
+	background: #f4f4f4;
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 50px 20px 50px;
+	color: black;
+	background-color: #ffffff;
+	border-top: 1px solid lightgrey;
 }
-
 
 .footer-style {
-  display: flex;
-  padding-left: 50px;
- p {
-  margin: 0;
- }
-
+	display: flex;
+	padding-left: 50px;
+	p {
+		margin: 0;
+	}
 }
 
-
 .resources-list {
-  padding: 0px;
+	padding: 0px;
 }
 
 .about-list {
-  padding: 0px;
+	padding: 0px;
 }
-
 
 .footer-links-right {
-  padding-bottom: 5px;
-  padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	padding-bottom: 5px;
+	padding-right: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 
 
-.footer-links a {
-  opacity: 0.15;
+
+.footer-links a {//opacity: 0.15;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 30px;
   padding-right: 10px;
 }
 
 
-.footer-links a:hover {
-  opacity: 1;
-}
+.icons {
+  font-size: 12px;
 
+}
 
 a.icons {
   color: black;
+
 }
 
 a.icons:hover {
-  color: #EF6666;
+	color: #ef6666;
 }
 
 .footer-links a:hover {
-  opacity: 1;
+	opacity: 1;
 }
-
-
-
-
