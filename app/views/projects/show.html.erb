@@ -1,5 +1,8 @@
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @project.photo.key %>);">
-  <h1 class="charity-name"><%=@project.charity.name%></h1>
+   <%= link_to projects_path do %>
+      <i class="fas fa-arrow-left back-arrow"></i>
+    <% end %>
+  <h1 class="charity-name"><%=@project.name%></h1>
   <div class="container">
     <div class="row justify-content-center">
       <div class="card text-center show-card">
@@ -12,8 +15,8 @@
             <div class="tab-pane active" id="project-description" role="tabpanel">
               <p class="card-text"><%= @project.project_description %></p>
               <div class="project-card-overview">
-                <p class="card-inform">Deadline:  <%= @project.deadline %></i></p>
-                <p class="card-inform">Project Type: <%= @project.category %></i></p>
+                <p class="card-inform">Deadline:  <%= @project.deadline %></p>
+                <p class="card-inform">Note: This is a <%= @project.category %> project</p>
                 <% if current_user.charity.nil? %>
                   <%= link_to project_bookings_path(@project, page: 'show'), method: :post do %>
                     <button type="button" class="btn-request" >I'm In!</button>
